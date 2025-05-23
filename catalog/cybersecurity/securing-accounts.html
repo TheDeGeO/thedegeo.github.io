@@ -1,0 +1,353 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Securing Your Online Accounts: Best Practices and Common Threats - David Obando</title>
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fantasque-sans-mono" type="text/css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/components/blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1>David Obando</h1>
+            <p class="tagline">Developer | Cybersecurity Enthusiast | Musician | Language Learner</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <button class="menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul><li class="home-button"><a href="../../index.html"><i class="fas fa-home"></i> Home</a></li>
+<li><a href="../../index.html#about">About</a></li>
+<li><a href="../../index.html#blog">Blog</a></li>
+<li><a href="../../index.html#portfolio">Portfolio</a></li>
+<li><a href="../../index.html#catalog">Catalog</a></li>
+<li><a href="../../index.html#contact">Contact</a></li></ul>
+        </div>
+    </nav>
+    
+    <main>
+        <section>
+            <div class="container">
+                <article class="blog-content">
+                    <header class="blog-header">
+                        <h1>Securing Your Online Accounts: Best Practices and Common Threats</h1>
+                        <div class="blog-meta">
+                            <time datetime="2023-05-23">May 22, 2025</time> | 
+                            <span>Category: <a href="#">Cybersecurity</a></span>
+                        </div>
+                    </header>
+                    
+                    <p>
+                        In the physical world, we understand security as having a key to a lock. But in the digital landscape, security involves numerous complex building blocks that work together to protect our online presence. With the increasing number of data breaches and cyber attacks, understanding how to properly secure your online accounts has never been more important.
+                    </p>
+
+                    <h2>The Foundations of Account Security</h2>
+                    <p>
+                        At the core of most security systems are two fundamental concepts:
+                    </p>
+                    <ul>
+                        <li><strong>Authentication</strong>: Proving you are who you claim to be</li>
+                        <li><strong>Authorization</strong>: Determining what you're allowed to access once authenticated</li>
+                    </ul>
+                    <p>
+                        The most common form of authentication is the username-password combination. The theory is simple: only the legitimate account owner should know both pieces of information. However, the reality is much more complicated.
+                    </p>
+
+                    <h2>Understanding Password Strength</h2>
+                    <p>
+                        To understand why strong passwords matter, we need to look at how attackers try to crack them. Let's explore the mathematics behind password security.
+                    </p>
+
+                    <h3>The Mathematics of Password Security</h3>
+                    <p>
+                        Consider a 4-digit PIN code for your phone. How many possible combinations exist?
+                    </p>
+
+                    <pre><code>10 x 10 x 10 x 10 = 10,000 possible combinations</code></pre>
+
+                    <p>
+                        This might seem like a lot, but for a computer program, checking 10,000 combinations takes milliseconds:
+                    </p>
+
+                    <pre><code># Python code to try all possible 4-digit PIN combinations
+from string import digits
+
+for i in digits:
+    for j in digits:
+        for k in digits:
+            for l in digits:
+                print(i, j, k, l)</code></pre>
+
+                    <p>
+                        What if we use 4 letters instead? With both uppercase and lowercase letters (52 possibilities for each position):
+                    </p>
+
+                    <pre><code>52 x 52 x 52 x 52 = 7,311,616 possible combinations</code></pre>
+
+                    <p>
+                        That's much better, but still crackable in minutes by modern computers:
+                    </p>
+
+                    <pre><code># Python code to try all possible 4-letter combinations
+from string import ascii_letters
+ 
+for i in ascii_letters:
+    for j in ascii_letters:
+        for k in ascii_letters:
+            for l in ascii_letters:
+                print(i, j, k, l)</code></pre>
+
+                    <p>
+                        Adding numbers and special characters increases complexity significantly:
+                    </p>
+
+                    <pre><code># Python code with letters, numbers, and special characters
+from string import ascii_letters, digits, punctuation
+
+for i in ascii_letters + digits + punctuation:
+    for j in ascii_letters + digits + punctuation:
+        for k in ascii_letters + digits + punctuation:
+            for l in ascii_letters + digits + punctuation:
+                print(i, j, k, l)</code></pre>
+
+                    <p>
+                        This gives us over 78 million possibilities for just a 4-character password. Now imagine an 8 or 12-character password with this complexity!
+                    </p>
+
+                    <blockquote>
+                        The key insight: Longer passwords with greater complexity exponentially increase the time required to crack them, making brute force attacks impractical.
+                    </blockquote>
+
+                    <h2>Common Attack Vectors</h2>
+                    <p>
+                        Beyond simple brute force attacks, adversaries employ several sophisticated techniques to compromise your accounts:
+                    </p>
+
+                    <h3>1. Dictionary Attacks</h3>
+                    <p>
+                        Instead of trying every possible combination, attackers use lists of common passwords and words. This is why passwords like "password123" or "qwerty" are extremely vulnerable.
+                    </p>
+
+                    <h3>2. Credential Stuffing</h3>
+                    <p>
+                        When one service is compromised, attackers take leaked username/password combinations and try them on other services. This is why using unique passwords for each service is crucial.
+                    </p>
+
+                    <h3>3. Keylogging</h3>
+                    <p>
+                        Malicious software installed on your device can record every keystroke, capturing your usernames, passwords, and even one-time passwords as you type them.
+                    </p>
+
+                    <h3>4. Phishing</h3>
+                    <p>
+                        These attacks use social engineering to trick you into entering your credentials on fake websites that look legitimate. For example, you might receive an email that appears to be from your bank, directing you to a fraudulent login page.
+                    </p>
+
+                    <p>
+                        A phishing email might contain links like:
+                    </p>
+
+                    <pre><code>&lt;a href="https://malicious-site.com/fake-login"&gt;https://yourbank.com/login&lt;/a&gt;</code></pre>
+
+                    <p>
+                        Notice how the displayed text looks legitimate, but the actual link destination is malicious.
+                    </p>
+
+                    <h3>5. Social Engineering</h3>
+                    <p>
+                        Attackers may pose as trusted individuals or institutions to manipulate you into revealing sensitive information or performing actions that compromise security.
+                    </p>
+
+                    <h2>NIST Security Recommendations</h2>
+                    <p>
+                        The National Institute of Standards and Technology (NIST) provides guidelines for effective password management. Key recommendations include:
+                    </p>
+
+                    <ul>
+                        <li>Passwords should be at least 8 characters long</li>
+                        <li>Systems should accept all ASCII characters and Unicode symbols (up to 64 characters)</li>
+                        <li>New passwords should be checked against compromised password lists</li>
+                        <li>Avoid requiring periodic password changes (which often leads to weaker passwords)</li>
+                        <li>Limit failed login attempts to prevent brute force attacks</li>
+                        <li>Don't allow unauthenticated users to access password hints</li>
+                    </ul>
+
+                    <h2>Multi-Factor Authentication (MFA)</h2>
+                    <p>
+                        To significantly enhance security, implement multi-factor authentication which combines multiple verification methods:
+                    </p>
+
+                    <ul>
+                        <li><strong>Knowledge factors</strong>: Something you know (passwords, PIN codes, security questions)</li>
+                        <li><strong>Possession factors</strong>: Something you have (smartphone, security key, authentication app)</li>
+                        <li><strong>Inherence factors</strong>: Something you are (fingerprints, facial recognition, other biometrics)</li>
+                    </ul>
+
+                    <h3>One-Time Passwords (OTP)</h3>
+                    <p>
+                        One-time passwords are commonly used for MFA. They can be delivered through:
+                    </p>
+
+                    <ul>
+                        <li>Text messages (SMS) - less secure due to SIM swapping attacks</li>
+                        <li>Authentication apps (Google Authenticator, Authy) - more secure</li>
+                        <li>Hardware tokens or key fobs - most secure</li>
+                    </ul>
+
+                    <blockquote>
+                        Using MFA can prevent 99.9% of automated attacks, even if your password is compromised.
+                    </blockquote>
+
+                    <h2>Modern Security Solutions</h2>
+
+                    <h3>Password Managers</h3>
+                    <p>
+                        Password managers solve two key problems:
+                    </p>
+                    <ol>
+                        <li>They generate unique, complex passwords for each service</li>
+                        <li>They securely store these passwords so you don't need to memorize them</li>
+                    </ol>
+                    <p>
+                        You only need to remember one master password, which should be very strong. Many password managers also:
+                    </p>
+                    <ul>
+                        <li>Recognize phishing websites</li>
+                        <li>Offer cross-device synchronization</li>
+                        <li>Auto-fill credentials safely</li>
+                    </ul>
+
+                    <h3>Single Sign-On (SSO)</h3>
+                    <p>
+                        SSO allows you to use a single set of credentials (like your Google or Facebook account) to access multiple services. This can enhance security by:
+                    </p>
+                    <ul>
+                        <li>Reducing the number of passwords you need to manage</li>
+                        <li>Leveraging the security infrastructure of major providers</li>
+                        <li>Making it easier to enforce MFA across multiple services</li>
+                    </ul>
+
+                    <h3>Passkeys: The Future of Authentication</h3>
+                    <p>
+                        Passkeys represent an emerging technology that promises to make authentication both more secure and more convenient:
+                    </p>
+                    <ul>
+                        <li>They use public-key cryptography instead of shared secrets</li>
+                        <li>The private key never leaves your device</li>
+                        <li>They're resistant to phishing since they're bound to specific websites</li>
+                        <li>No passwords to remember or type</li>
+                    </ul>
+
+                    <p>
+                        Passkeys work through a cryptographic challenge-response system:
+                    </p>
+
+                    <pre><code>// Website sends a challenge
+const challenge = generateRandomChallenge();
+
+// Your device signs it with your private key
+const signature = sign(challenge, privateKey);
+
+// Website verifies the signature with your public key
+const isAuthenticated = verify(challenge, signature, publicKey);</code></pre>
+
+                    <h2>Balancing Security and Usability</h2>
+                    <p>
+                        There's always a tradeoff between security and convenience. Highly secure practices often create friction, while highly convenient practices may compromise security. The key is finding the right balance for your specific needs.
+                    </p>
+
+                    <p>
+                        Consider these questions when evaluating security measures:
+                    </p>
+
+                    <ul>
+                        <li>What is the sensitivity of the data being protected?</li>
+                        <li>How likely are you to be targeted by sophisticated attackers?</li>
+                        <li>What would be the consequences of a breach?</li>
+                        <li>How frequently will you need to authenticate?</li>
+                    </ul>
+
+                    <h2>Conclusion</h2>
+                    <p>
+                        The digital landscape is filled with security challenges, but by implementing strong passwords, using multi-factor authentication, being vigilant against social engineering, and leveraging modern security tools, you can significantly reduce your risk.
+                    </p>
+
+                    <p>
+                        Remember that security is not a one-time setup but an ongoing practice. Stay informed about emerging threats, regularly audit your security practices, and always prioritize the protection of your most sensitive accounts and information.
+                    </p>
+                    
+                    <footer class="blog-footer">
+                        <div class="blog-nav">
+                            <a href="#" class="previous-post" style="visibility: hidden;"><i class="fas fa-arrow-left"></i> Previous Post</a>
+                            <a href="web-security.html" class="next-post">Introduction to Web Security <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        
+                        <div class="blog-comments">
+                            <h3>Comments</h3>
+                            <!-- Comment system integration would go here -->
+                            <p>©  David Obando. All rights reserved</p>
+                        </div>
+                    </footer>
+                </article>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>© <script>document.write(new Date().getFullYear())</script> David Obando. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="../js/main.js"></script>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if this is the home page
+            const isHomePage = window.location.pathname.endsWith('index.html') || 
+                               window.location.pathname.endsWith('/') ||
+                               window.location.pathname === '';
+            
+            // Get the header element
+            const header = document.querySelector('.site-header');
+            
+            // Hide header if not on home page
+            if (!isHomePage) {
+                header.style.display = 'none';
+            }
+            
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('nav ul');
+            
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    // Change icon based on menu state
+                    const icon = this.querySelector('i');
+                    if (navMenu.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+                
+                // Close menu when clicking on a link
+                const navLinks = document.querySelectorAll('nav ul li a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        navMenu.classList.remove('active');
+                        const icon = menuToggle.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    });
+                });
+            }
+        });
+      </script></body></html>

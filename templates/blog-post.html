@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% BLOG_TITLE %} - David Obando</title>
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fantasque-sans-mono" type="text/css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components/blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1>David Obando</h1>
+            <p class="tagline">Developer | Cybersecurity Enthusiast | Musician | Language Learner</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container"><button class="menu-toggle" aria-label="Toggle navigation menu"><i class="fas fa-bars"></i></button>
+            <ul><li class="home-button"><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+<li><a href="../index.html#about">About</a></li>
+<li><a href="../index.html#blog">Blog</a></li>
+<li><a href="../index.html#portfolio">Portfolio</a></li>
+<li><a href="../index.html#catalog">Catalog</a></li>
+<li><a href="../index.html#contact">Contact</a></li></ul>
+        </div>
+    </nav>
+    
+    <main>
+        <section>
+            <div class="container">
+                <article class="blog-content">
+                    <header class="blog-header">
+                        <h1>{% BLOG_TITLE %}</h1>
+                        <div class="blog-meta">
+                            <time datetime="{% DATE_ISO %}">{% DATE_DISPLAY %}</time> | 
+                            <span>Category: <a href="#">{% BLOG_CATEGORY %}</a></span>
+                        </div>
+                    </header>
+                    
+                    <!-- Blog content goes here -->
+                    {% BLOG_CONTENT %}
+                    
+                    <footer class="blog-footer">
+                        <div class="blog-nav">
+                            <a href="#" class="previous-post"><i class="fas fa-arrow-left"></i> Previous Post</a>
+                            <a href="#" class="next-post">Next Post <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        
+                        <div class="blog-comments">
+                            <h3>Comments</h3>
+                            <!-- Comment system integration would go here -->
+                            <p>©  David Obando. All rights reserved</p>
+                        </div>
+                    </footer>
+                </article>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>© <script>document.write(new Date().getFullYear())</script> {% SITE_NAME %}. {% COPYRIGHT_TEXT %}</p>
+        </div>
+    </footer>
+    
+    <script src="../js/main.js"></script>
+
+ <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if this is the home page
+            const isHomePage = window.location.pathname.endsWith('index.html') || 
+                               window.location.pathname.endsWith('/') ||
+                               window.location.pathname === '';
+            
+            // Get the header element
+            const header = document.querySelector('.site-header');
+            
+            // Hide header if not on home page
+            if (!isHomePage) {
+                header.style.display = 'none';
+            }
+        });
+      </script></body></html>

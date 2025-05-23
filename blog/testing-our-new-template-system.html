@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing Our New Template System - David Obando</title>
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fantasque-sans-mono" type="text/css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components/blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1>David Obando</h1>
+            <p class="tagline">Developer | Cybersecurity Enthusiast | Musician | Language Learner</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container"><button class="menu-toggle" aria-label="Toggle navigation menu"><i class="fas fa-bars"></i></button>
+            <ul><li class="home-button"><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+<li><a href="../index.html#about">About</a></li>
+<li><a href="../index.html#blog">Blog</a></li>
+<li><a href="../index.html#portfolio">Portfolio</a></li>
+<li><a href="../index.html#catalog">Catalog</a></li>
+<li><a href="../index.html#contact">Contact</a></li></ul>
+        </div>
+    </nav>
+    
+    <main>
+        <section>
+            <div class="container">
+                <article class="blog-content">
+                    <header class="blog-header">
+                        <h1>Testing Our New Template System</h1>
+                        <div class="blog-meta">
+                            <time datetime="2025-05-22">May 22, 2025</time> | 
+                            <span>Category: <a href="#">Development</a></span>
+                        </div>
+                    </header>
+                    
+                    <!-- Blog content goes here -->
+                    
+<p>
+    Write your introduction paragraph here.
+</p>
+
+<h2>First Section</h2>
+<p>
+    Your content goes here.
+</p>
+
+<h3>Subsection</h3>
+<p>
+    More detailed content here.
+</p>
+
+<h2>Conclusion</h2>
+<p>
+    Summarize your post here.
+</p>
+
+                    
+                    <footer class="blog-footer">
+                        <div class="blog-nav">
+                            {% if PREV_POST %}
+                            <a href="web-security.html" class="previous-post" style="visibility: hidden;"><i class="fas fa-arrow-left"></i> Introduction to Web Security</a>
+                            {% else %}
+                            <span></span>
+                            {% endif %}
+                            
+                            {% if NEXT_POST %}
+                            <a href="#" class="next-post" style="visibility: hidden;">Next Post</a>
+                            {% else %}
+                            <span></span>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="blog-comments">
+                            <h3>Comments</h3>
+                            <!-- Comment system integration would go here -->
+                            <p>©  David Obando. All rights reserved</p>
+                        </div>
+                    </footer>
+                </article>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>© <script>document.write(new Date().getFullYear())</script> Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="../js/main.js"></script>
+
+ <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if this is the home page
+            const isHomePage = window.location.pathname.endsWith('index.html') || 
+                               window.location.pathname.endsWith('/') ||
+                               window.location.pathname === '';
+            
+            // Get the header element
+            const header = document.querySelector('.site-header');
+            
+            // Hide header if not on home page
+            if (!isHomePage) {
+                header.style.display = 'none';
+            }
+        });
+      </script></body></html>

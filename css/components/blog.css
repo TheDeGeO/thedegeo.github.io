@@ -1,0 +1,116 @@
+/* Blog-specific styles that extend the main.css styles */
+
+/* Blog Content */
+.blog-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--card-bg);
+    border-radius: var(--card-border-radius);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--bg-highlight);
+}
+
+/* Blog Header */
+.blog-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.blog-meta {
+    font-style: italic;
+    color: var(--fg-light);
+    margin-bottom: 2rem;
+}
+
+.blog-meta a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.blog-meta a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* Blog specific image styles */
+.blog-content img {
+    margin: 2rem auto;
+    border-radius: 8px;
+    border: 1px solid var(--bg-accent);
+}
+
+/* Blog footer */
+.blog-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--bg-accent);
+}
+
+/* Blog navigation */
+.blog-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.blog-nav a {
+    color: var(--accent-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.blog-nav a:hover {
+    background-color: var(--bg-highlight);
+    color: var(--primary-color);
+}
+
+/* Blog comments */
+.blog-comments {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background-color: var(--bg-light);
+    border-radius: 8px;
+}
+
+.blog-comments h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+/* Category tags */
+.blog-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.blog-category {
+    background-color: var(--bg-highlight);
+    color: var(--fg-light);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid var(--bg-accent);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.blog-category:hover {
+    background-color: var(--bg-accent);
+    transform: translateY(-2px);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .blog-content {
+        padding: 1.5rem;
+    }
+    
+    .blog-nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+} 

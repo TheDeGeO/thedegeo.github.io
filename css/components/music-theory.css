@@ -1,0 +1,137 @@
+/* Music Theory Article Styles */
+
+.chord-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    border-radius: var(--card-border-radius);
+    overflow: hidden;
+}
+
+.chord-table th, 
+.chord-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--bg-highlight);
+}
+
+.chord-table th {
+    background-color: rgba(var(--blue-rgb), 0.2);
+    color: var(--blue);
+    font-weight: bold;
+}
+
+.chord-table tr:nth-child(even) {
+    background-color: var(--bg-light);
+}
+
+.chord-table tr:hover {
+    background-color: rgba(var(--blue-rgb), 0.05);
+}
+
+.section-header {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--blue);
+    border-bottom: 2px solid rgba(var(--blue-rgb), 0.3);
+    padding-bottom: 0.5rem;
+}
+
+.note {
+    background-color: rgba(var(--blue-rgb), 0.1);
+    border-left: 4px solid var(--blue);
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-radius: 0 var(--card-border-radius) var(--card-border-radius) 0;
+}
+
+.article-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--bg-highlight);
+}
+
+code {
+    background-color: var(--bg-light);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'FantasqueSansMonoRegular', monospace;
+    font-size: 0.9rem;
+}
+
+.tip-box {
+    background-color: rgba(var(--green-rgb), 0.1);
+    border-left: 4px solid var(--green);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 var(--card-border-radius) var(--card-border-radius) 0;
+}
+
+/* Special element styling */
+.music-theory-article h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.music-theory-article h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: var(--fg-primary);
+}
+
+.music-theory-article ul,
+.music-theory-article ol {
+    margin: 1rem 0 1.5rem 2rem;
+}
+
+.music-theory-article li {
+    margin-bottom: 0.5rem;
+}
+
+.music-theory-article p {
+    line-height: 1.7;
+    margin: 1rem 0;
+}
+
+.music-theory-article strong {
+    color: var(--fg-primary);
+    font-weight: bold;
+}
+
+/* Notation elements */
+.note-symbol {
+    font-weight: bold;
+    font-family: 'FantasqueSansMonoBold', monospace;
+}
+
+.flat {
+    position: relative;
+    top: -0.1em;
+}
+
+.sharp {
+    position: relative;
+    top: -0.1em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .chord-table {
+        font-size: 0.9rem;
+    }
+    
+    .chord-table th, 
+    .chord-table td {
+        padding: 0.6rem;
+    }
+    
+    .music-theory-article h2 {
+        font-size: 1.7rem;
+    }
+    
+    .music-theory-article h3 {
+        font-size: 1.3rem;
+    }
+} 

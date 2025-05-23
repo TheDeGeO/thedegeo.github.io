@@ -1,0 +1,249 @@
+/* Catalog Styles - Used in main catalog and category libraries */
+
+/* Main catalog cards */
+.catalog-card {
+    background-color: var(--card-bg);
+    border-radius: var(--card-border-radius);
+    border: 1px solid var(--bg-highlight);
+    margin-bottom: 2rem;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    padding: 2rem;
+    text-align: center;
+}
+
+.catalog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.catalog-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.catalog-card p {
+    margin-bottom: 1.5rem;
+}
+
+.catalog-card .icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.cybersecurity-card {
+    border-left: 4px solid var(--green);
+}
+
+.cybersecurity-card .icon {
+    color: var(--green);
+}
+
+.music-card {
+    border-left: 4px solid var(--blue);
+}
+
+.music-card .icon {
+    color: var(--blue);
+}
+
+.catalog-button {
+    display: inline-block;
+    background-color: var(--bg-accent);
+    color: var(--fg-light);
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--button-radius);
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: bold;
+}
+
+.catalog-button:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-darker);
+    transform: translateY(-2px);
+}
+
+/* Article Cards for Category Pages */
+.article-card {
+    background-color: var(--card-bg);
+    border-radius: var(--card-border-radius);
+    border: 1px solid var(--bg-highlight);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.article-card h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: var(--fg-primary);
+}
+
+.article-meta {
+    display: flex;
+    justify-content: space-between;
+    color: var(--fg-muted);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Search & Filter Elements */
+.search-container {
+    margin: 2rem 0;
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    border: 1px solid var(--bg-highlight);
+    border-radius: var(--card-border-radius);
+    background-color: var(--bg-light);
+    color: var(--fg-primary);
+    font-family: 'FantasqueSansMonoRegular', monospace;
+    font-size: 1rem;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--fg-muted);
+}
+
+.no-results {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--bg-light);
+    border-radius: var(--card-border-radius);
+    margin: 2rem 0;
+}
+
+/* Navigation and structure */
+.catalog-breadcrumbs {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.catalog-breadcrumbs a {
+    color: var(--fg-muted);
+    text-decoration: none;
+}
+
+.catalog-breadcrumbs .separator {
+    margin: 0 0.5rem;
+    color: var(--fg-muted);
+}
+
+.section-description {
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+    background-color: var(--bg-light);
+    padding: 1.5rem;
+    border-radius: 0 var(--card-border-radius) var(--card-border-radius) 0;
+}
+
+/* Category-specific Styles */
+/* Cybersecurity */
+.cybersecurity .section-description,
+.cybersecurity .article-card {
+    border-left: 4px solid var(--green);
+}
+
+.cybersecurity .search-input:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 2px rgba(var(--green-rgb), 0.2);
+}
+
+.cybersecurity .catalog-breadcrumbs a:hover {
+    color: var(--green);
+}
+
+.cybersecurity .tag {
+    background-color: rgba(var(--green-rgb), 0.1);
+    color: var(--green);
+}
+
+.cybersecurity .category-tag {
+    background-color: var(--bg-light);
+    color: var(--green);
+    border: 1px solid var(--green);
+}
+
+.cybersecurity .category-tag:hover,
+.cybersecurity .category-tag.active {
+    background-color: var(--green);
+    color: var(--bg-dark);
+}
+
+/* Music Theory */
+.music-theory .section-description,
+.music-theory .article-card {
+    border-left: 4px solid var(--blue);
+}
+
+.music-theory .search-input:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 2px rgba(var(--blue-rgb), 0.2);
+}
+
+.music-theory .catalog-breadcrumbs a:hover {
+    color: var(--blue);
+}
+
+.music-theory .tag {
+    background-color: rgba(var(--blue-rgb), 0.1);
+    color: var(--blue);
+}
+
+/* Shared Tag Styles */
+.tag {
+    display: inline-block;
+    padding: 0.2rem 0.8rem;
+    border-radius: 50px;
+    margin-right: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.category-tag {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    margin-right: 0.8rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.filter-categories {
+    margin-bottom: 2rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .catalog-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .article-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+} 

@@ -1,0 +1,125 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% PROJECT_TITLE %} - David Obando</title>
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fantasque-sans-mono" type="text/css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components/portfolio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1>David Obando</h1>
+            <p class="tagline">Developer | Cybersecurity Enthusiast | Musician | Language Learner</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container"><button class="menu-toggle" aria-label="Toggle navigation menu"><i class="fas fa-bars"></i></button>
+            <ul><li class="home-button"><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+<li><a href="../index.html#about">About</a></li>
+<li><a href="../index.html#blog">Blog</a></li>
+<li><a href="../index.html#portfolio">Portfolio</a></li>
+<li><a href="../index.html#catalog">Catalog</a></li>
+<li><a href="../index.html#contact">Contact</a></li></ul>
+        </div>
+    </nav>
+    
+    <main>
+        <section>
+            <div class="container">
+                <article class="project-content">
+                    <header class="project-header">
+                        <h1>{% PROJECT_TITLE %}</h1>
+                        <div class="project-meta">
+                            <div class="project-meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>Completed: {% PROJECT_DATE %}</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-code-branch"></i>
+                                <span>Type: {% PROJECT_TYPE %}</span>
+                            </div>
+                            <div class="project-meta-item">
+                                <i class="fas fa-user-friends"></i>
+                                <span>Role: {% PROJECT_ROLE %}</span>
+                            </div>
+                        </div>
+                    </header>
+                    
+                    <div class="project-gallery">
+                        {% PROJECT_GALLERY %}
+                    </div>
+                    
+                    <div class="project-section">
+                        <h2>Project Overview</h2>
+                        {% PROJECT_OVERVIEW %}
+                    </div>
+                    
+                    <div class="project-section project-features">
+                        <h2>Key Features</h2>
+                        <ul>
+                            {% PROJECT_FEATURES %}
+                        </ul>
+                    </div>
+                    
+                    <div class="project-section">
+                        <h2>Technologies Used</h2>
+                        <div class="tech-stack">
+                            {% PROJECT_TECH_STACK %}
+                        </div>
+                    </div>
+                    
+                    <div class="project-section">
+                        <h2>Challenges &amp; Solutions</h2>
+                        {% PROJECT_CHALLENGES %}
+                    </div>
+                    
+                    <div class="project-section">
+                        <h2>What I Learned</h2>
+                        {% PROJECT_LEARNING %}
+                    </div>
+                    
+                    <div class="project-links">
+                        {% if PROJECT_DEMO_LINK %}
+                        <a href="{% PROJECT_DEMO_LINK %}" class="project-link-btn">
+                            <i class="fas fa-globe"></i> Live Demo
+                        </a>
+                        {% endif %}
+                        
+                        {% if PROJECT_CODE_LINK %}
+                        <a href="{% PROJECT_CODE_LINK %}" class="project-link-btn">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                        {% endif %}
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>© <script>document.write(new Date().getFullYear())</script> David Obando. All rights reserved</p>
+        </div>
+    </footer>
+    
+    <script src="../js/main.js"></script>
+
+ <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if this is the home page
+            const isHomePage = window.location.pathname.endsWith('index.html') || 
+                               window.location.pathname.endsWith('/') ||
+                               window.location.pathname === '';
+            
+            // Get the header element
+            const header = document.querySelector('.site-header');
+            
+            // Hide header if not on home page
+            if (!isHomePage) {
+                header.style.display = 'none';
+            }
+        });
+      </script></body></html>
