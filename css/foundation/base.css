@@ -1,19 +1,22 @@
 /* ==== BASE STYLES ==== */
 /* Fundamental styles for HTML elements */
 
-/* ===== RESET ===== */
+/* ===== FONT IMPORTS ===== */
+@import url('https://fontlibrary.org/face/fantasque-sans-mono');
+@import url('https://fonts.googleapis.com/css2?family=Fantasque+Sans+Mono:wght@400;700&display=swap');
+
+/* ===== UNIVERSAL FONT APPLICATION ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: var(--font-primary) !important;
 }
-
-/* ===== FONT IMPORTS ===== */
-@import url('https://fontlibrary.org//face/fantasque-sans-mono');
 
 /* ===== DOCUMENT STYLES ===== */
 html {
     scroll-behavior: smooth;
+    font-family: var(--font-primary);
 }
 
 body {
@@ -21,6 +24,7 @@ body {
     line-height: var(--leading-normal);
     color: var(--text-color);
     background-color: var(--bg-color);
+    padding-top: var(--navbar-height); /* Account for fixed header height */
 }
 
 /* ===== TYPOGRAPHY ===== */

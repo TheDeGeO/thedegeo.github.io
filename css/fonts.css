@@ -34,27 +34,29 @@
     font-display: swap;
 }
 
-/* Font family definitions for consistent usage */
+/* Font family definitions for consistent usage - ALL USE FANTASQUE SANS MONO */
 :root {
-    /* Override any existing font variables with our centralized definitions */
+    /* Use Fantasque Sans Mono for everything */
     --font-mono: 'Fantasque Sans Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace !important;
-    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+    --font-sans: 'Fantasque Sans Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace !important;
     --font-primary: 'Fantasque Sans Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace !important;
     --font-bold: 'Fantasque Sans Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace !important;
 }
 
-/* Apply monospace font to code elements */
-code, pre, .code {
-    font-family: var(--font-mono) !important;
+/* Apply Fantasque Sans Mono to ALL elements */
+* {
+    font-family: var(--font-primary) !important;
 }
 
-/* Default body font - use sans-serif for readability */
+/* Ensure body uses Fantasque Sans Mono */
 body {
-    font-family: var(--font-sans) !important;
+    font-family: var(--font-primary) !important;
 }
 
-/* Apply Fantasque Sans Mono to specific elements that should use it */
+/* Apply Fantasque Sans Mono to specific elements */
 .note-symbol,
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6,
+code, pre, .code,
+input, textarea, select, button {
     font-family: var(--font-primary) !important;
 } 

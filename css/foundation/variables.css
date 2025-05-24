@@ -83,6 +83,14 @@
     --header-padding: var(--space-lg) 0;
     --nav-padding: var(--space-sm) 0;
     
+    /* Header dimensions for fixed positioning */
+    --header-height: 70px;
+    --header-height-mobile: 50px;
+
+    /* Navbar dimensions for fixed positioning */
+    --navbar-height: 70px;
+    --navbar-height-mobile: 50px;
+    
     /* ===== TYPOGRAPHY ===== */
     /* Font families - Updated to use centralized font system */
     --font-primary: 'Fantasque Sans Mono', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
