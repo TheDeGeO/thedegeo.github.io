@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Form submission handling
-    const contactForm = document.querySelector('#contact form');
+    const contactForm = document.querySelector('#contact-form');
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -55,7 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
                 observer.unobserve(entry.target);
             }
         });
@@ -68,11 +69,5 @@ document.addEventListener('DOMContentLoaded', function() {
         card.style.transform = 'translateY(20px)';
         card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
         observer.observe(card);
-    });
-    
-    // Add visible class when card becomes visible
-    document.querySelectorAll('.visible').forEach(el => {
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
     });
 }); 

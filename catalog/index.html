@@ -3,9 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Content Catalog - David Obando</title>
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fantasque-sans-mono" type="text/css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/components/blog.css">
-    <link rel="stylesheet" href="../css/components/catalog.css">
+    <link rel="stylesheet" href="../css/main-unified.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -33,34 +31,36 @@
     <main>
         <section>
             <div class="container">
-                <article class="blog-content">
-                    <header class="blog-header">
-                        <h1>Content Catalog</h1>
-                        <div class="blog-meta">
+                <article class="article-container">
+                    <header class="article-header">
+                        <h1 class="article-title">Content Catalog</h1>
+                        <div class="article-meta">
                             <span>Browse articles and resources by topic</span>
                         </div>
                     </header>
                     
-                    <p>
-                        Welcome to my content catalog. Here you'll find my articles, resources, and educational content organized by topic. 
-                        Select a library below to explore content in that category.
-                    </p>
-                    
-                    <div class="catalog-grid">
-                        <div class="catalog-card cybersecurity-card">
-                            <i class="fas fa-shield-alt icon"></i>
-                            <h3>Cybersecurity</h3>
-                            <p>Explore articles on web security, account protection, cryptography, and security best practices.</p>
-                            <p><strong>Articles:</strong> 2</p>
-                            <a href="cybersecurity/index.html" class="catalog-button">Browse Library <i class="fas fa-arrow-right"></i></a>
-                        </div>
+                    <div class="article-content">
+                        <p>
+                            Welcome to my content catalog. Here you'll find my articles, resources, and educational content organized by topic. 
+                            Select a library below to explore content in that category.
+                        </p>
                         
-                        <div class="catalog-card music-card">
-                            <i class="fas fa-music icon"></i>
-                            <h3>Music Theory</h3>
-                            <p>Discover resources on music theory, composition techniques, harmony, and musical analysis.</p>
-                            <p><strong>Articles:</strong> 1</p>
-                            <a href="music-theory/index.html" class="catalog-button">Browse Library <i class="fas fa-arrow-right"></i></a>
+                        <div class="catalog-grid">
+                            <div class="catalog-card">
+                                <i class="fas fa-shield-alt icon"></i>
+                                <h3>Cybersecurity</h3>
+                                <p>Explore articles on web security, account protection, cryptography, and security best practices.</p>
+                                <p><strong>Articles:</strong> 2</p>
+                                <a href="cybersecurity/index.html" class="btn btn-primary">Browse Library <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                            
+                            <div class="catalog-card">
+                                <i class="fas fa-music icon"></i>
+                                <h3>Music Theory</h3>
+                                <p>Discover resources on music theory, composition techniques, harmony, and musical analysis.</p>
+                                <p><strong>Articles:</strong> 1</p>
+                                <a href="music-theory/index.html" class="btn btn-primary">Browse Library <i class="fas fa-arrow-right"></i></a>
+                            </div>
                         </div>
                     </div>
                     

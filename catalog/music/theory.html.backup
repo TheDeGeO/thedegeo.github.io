@@ -1,12 +1,13 @@
 <!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Theory - David Obando</title>
+    <title>Music Theory Articles - David Obando</title>
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fantasque-sans-mono" type="text/css">
-    <link rel="stylesheet" href="../../css/main-unified.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/components/blog.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="content-music">
+<body>
     <header class="site-header">
         <div class="container">
             <h1>David Obando</h1>
@@ -31,59 +32,50 @@
     <main>
         <section>
             <div class="container">
-                <article class="article-container">
-                    <header class="article-header">
-                        <h1 class="article-title">Music Theory</h1>
-                        <div class="article-meta">
-                            <div class="article-meta-item">
-                                <i class="far fa-calendar-alt"></i>
-                                <time datetime="2024-01-01">January 1, 2024</time>
-                            </div>
-                            <div class="article-meta-item">
-                                <i class="fas fa-tag"></i>
-                                <span>Music</span>
-                            </div>
+                <article class="blog-content">
+                    <header class="blog-header">
+                        <h1>Music Theory Articles</h1>
+                        <div class="blog-meta">
+                            <span>Category: <a href="../../index.html#catalog">Music</a></span>
                         </div>
                     </header>
                     
-                    <div class="article-content">
-                        <p>
-                            This section contains articles exploring various music theory concepts. From basic harmony to advanced compositional techniques, these resources aim to make music theory accessible and practical.
-                        </p>
-                        
-                        <h2>Featured Articles</h2>
-                        
-                        <div style="margin: 2rem 0; padding: 1.5rem; background-color: var(--bg-light); border-radius: var(--card-border-radius);">
-                            <h3>Understanding Modal Harmony</h3>
-                            <p>An exploration of the seven primary modes of the major scale and how they create distinct emotional landscapes in music.</p>
-                            <p><strong>Topics covered:</strong> Ionian, Dorian, Phrygian, Lydian, Mixolydian, Aeolian, and Locrian modes</p>
-                            <p><strong>Reading time:</strong> 15 minutes</p>
-                            <p><strong>Published:</strong> June 2023</p>
-                            <p><a href="#">Read article →</a></p>
-                        </div>
-                        
-                        <div style="margin: 2rem 0; padding: 1.5rem; background-color: var(--bg-light); border-radius: var(--card-border-radius);">
-                            <h3>Rhythm Fundamentals: Beyond 4/4</h3>
-                            <p>A practical guide to understanding and using compound and odd time signatures in your compositions.</p>
-                            <p><strong>Topics covered:</strong> 6/8, 9/8, 5/4, 7/8, and polyrhythms</p>
-                            <p><strong>Reading time:</strong> 12 minutes</p>
-                            <p><strong>Published:</strong> April 2023</p>
-                            <p><a href="#">Read article →</a></p>
-                        </div>
-                        
-                        <h2>Coming Soon</h2>
-                        <ul>
-                            <li>Extended Harmony: Understanding 9th, 11th, and 13th Chords</li>
-                            <li>The Art of Voice Leading: Creating Smooth Harmonic Progressions</li>
-                            <li>Introduction to Non-Western Scales and Modes</li>
-                        </ul>
-                        
-                        <footer class="article-footer">
-                            <div class="article-nav">
-                                <a href="compositions.html" class="previous-post"><i class="fas fa-arrow-left"></i> Music Compositions</a>
-                            </div>
-                        </footer>
+                    <p>
+                        This section contains articles exploring various music theory concepts. From basic harmony to advanced compositional techniques, these resources aim to make music theory accessible and practical.
+                    </p>
+                    
+                    <h2>Featured Articles</h2>
+                    
+                    <div style="margin: 2rem 0; padding: 1.5rem; background-color: var(--bg-light); border-radius: var(--card-border-radius);">
+                        <h3>Understanding Modal Harmony</h3>
+                        <p>An exploration of the seven primary modes of the major scale and how they create distinct emotional landscapes in music.</p>
+                        <p><strong>Topics covered:</strong> Ionian, Dorian, Phrygian, Lydian, Mixolydian, Aeolian, and Locrian modes</p>
+                        <p><strong>Reading time:</strong> 15 minutes</p>
+                        <p><strong>Published:</strong> June 2023</p>
+                        <p><a href="#">Read article →</a></p>
                     </div>
+                    
+                    <div style="margin: 2rem 0; padding: 1.5rem; background-color: var(--bg-light); border-radius: var(--card-border-radius);">
+                        <h3>Rhythm Fundamentals: Beyond 4/4</h3>
+                        <p>A practical guide to understanding and using compound and odd time signatures in your compositions.</p>
+                        <p><strong>Topics covered:</strong> 6/8, 9/8, 5/4, 7/8, and polyrhythms</p>
+                        <p><strong>Reading time:</strong> 12 minutes</p>
+                        <p><strong>Published:</strong> April 2023</p>
+                        <p><a href="#">Read article →</a></p>
+                    </div>
+                    
+                    <h2>Coming Soon</h2>
+                    <ul>
+                        <li>Extended Harmony: Understanding 9th, 11th, and 13th Chords</li>
+                        <li>The Art of Voice Leading: Creating Smooth Harmonic Progressions</li>
+                        <li>Introduction to Non-Western Scales and Modes</li>
+                    </ul>
+                    
+                    <footer class="blog-footer">
+                        <div class="blog-nav">
+                            <a href="compositions.html" class="previous-post"><i class="fas fa-arrow-left"></i> Music Compositions</a>
+                        </div>
+                    </footer>
                 </article>
             </div>
         </section>

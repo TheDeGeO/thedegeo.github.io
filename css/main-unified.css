@@ -1,0 +1,106 @@
+/* ==== UNIFIED CSS ARCHITECTURE ==== */
+/* 
+ * Modular CSS system with clear separation of concerns
+ * Import order is important for proper cascade
+ */
+
+/* ===== FOUNDATION LAYER ===== */
+/* Core variables and fundamental styles */
+@import url('./foundation/variables.css');
+@import url('./foundation/base.css');
+@import url('./foundation/layout.css');
+
+/* ===== COMPONENT LAYER ===== */
+/* Reusable UI components */
+@import url('./components/ui-components.css');
+@import url('./components/content-types.css');
+
+/* ===== PAGE LAYER ===== */
+/* Page-specific styles */
+@import url('./pages/home.css');
+
+/* ===== SPECIALIZED CONTENT STYLES ===== */
+/* Content-specific enhancements that work with the base system */
+
+/* Music notation elements */
+.note-symbol {
+    font-weight: bold;
+    font-family: var(--font-bold);
+}
+
+.flat,
+.sharp {
+    position: relative;
+    top: -0.1em;
+}
+
+/* Section headers for content */
+.section-header {
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-md);
+    color: var(--blue);
+    border-bottom: 2px solid rgba(var(--blue-rgb), 0.3);
+    padding-bottom: var(--space-xs);
+}
+
+/* Breadcrumbs for catalog navigation */
+.catalog-breadcrumbs {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--space-lg);
+    font-size: var(--text-sm);
+}
+
+.catalog-breadcrumbs a {
+    color: var(--fg-muted);
+    text-decoration: none;
+    transition: color var(--transition-normal);
+}
+
+.catalog-breadcrumbs a:hover {
+    color: var(--primary-color);
+}
+
+.catalog-breadcrumbs .separator {
+    margin: 0 var(--space-xs);
+    color: var(--fg-muted);
+}
+
+/* Note boxes for articles */
+.note {
+    background-color: rgba(var(--aqua-rgb), 0.1);
+    border-left: 4px solid var(--aqua);
+    padding: var(--space-md);
+    margin: var(--space-md) 0;
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+}
+
+.note i {
+    color: var(--aqua);
+    margin-right: var(--space-xs);
+}
+
+/* ===== RESPONSIVE OVERRIDES ===== */
+@media (max-width: 768px) {
+    .catalog-breadcrumbs {
+        font-size: var(--text-xs);
+        flex-wrap: wrap;
+    }
+}
+
+/* ===== DEVELOPMENT NOTES ===== */
+/*
+ * TODO for future refactoring:
+ * 1. Replace all .blog-* classes with .article-* classes
+ * 2. Replace all .project-* classes with standardized content-type classes
+ * 3. Update HTML templates to use new class naming conventions
+ * 4. Remove legacy compatibility section once HTML is updated
+ * 5. Consider creating additional page-specific CSS files for blog, portfolio, etc.
+ * 
+ * Benefits of this new architecture:
+ * - Clear separation of variables, base styles, components, and pages
+ * - Reusable components that work across different content types
+ * - Consistent naming conventions and design system
+ * - Easier maintenance and future updates
+ * - Better scalability for adding new content types
+ */ 

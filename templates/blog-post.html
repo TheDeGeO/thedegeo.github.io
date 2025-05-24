@@ -1,13 +1,12 @@
 <!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% BLOG_TITLE %} - David Obando</title>
+    <title>{% TITLE %} - David Obando</title>
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fantasque-sans-mono" type="text/css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/components/blog.css">
+    <link rel="stylesheet" href="../css/main-unified.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body class="{% CONTENT_TYPE %}">
     <header class="site-header">
         <div class="container">
             <h1>David Obando</h1>
@@ -16,7 +15,10 @@
     </header>
     
     <nav>
-        <div class="container"><button class="menu-toggle" aria-label="Toggle navigation menu"><i class="fas fa-bars"></i></button>
+        <div class="container">
+            <button class="menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
             <ul><li class="home-button"><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
 <li><a href="../index.html#about">About</a></li>
 <li><a href="../index.html#blog">Blog</a></li>
@@ -29,28 +31,34 @@
     <main>
         <section>
             <div class="container">
-                <article class="blog-content">
-                    <header class="blog-header">
-                        <h1>{% BLOG_TITLE %}</h1>
-                        <div class="blog-meta">
-                            <time datetime="{% DATE_ISO %}">{% DATE_DISPLAY %}</time> | 
-                            <span>Category: <a href="#">{% BLOG_CATEGORY %}</a></span>
+                <article class="article-container">
+                    <header class="article-header">
+                        <h1 class="article-title">{% TITLE %}</h1>
+                        <div class="article-meta">
+                            <div class="article-meta-item">
+                                <i class="far fa-calendar-alt"></i>
+                                <time datetime="{% DATE %}">{% DATE_FORMATTED %}</time>
+                            </div>
+                            <div class="article-meta-item">
+                                <i class="fas fa-tag"></i>
+                                <span>{% CATEGORY %}</span>
+                            </div>
                         </div>
                     </header>
                     
-                    <!-- Blog content goes here -->
-                    {% BLOG_CONTENT %}
+                    <div class="article-content">
+                        {% CONTENT %}
+                    </div>
                     
-                    <footer class="blog-footer">
-                        <div class="blog-nav">
-                            <a href="#" class="previous-post"><i class="fas fa-arrow-left"></i> Previous Post</a>
-                            <a href="#" class="next-post">Next Post <i class="fas fa-arrow-right"></i></a>
+                    <footer class="article-footer">
+                        <div class="nav-links">
+                            {% NAVIGATION %}
                         </div>
                         
-                        <div class="blog-comments">
+                        <div class="article-comments">
                             <h3>Comments</h3>
                             <!-- Comment system integration would go here -->
-                            <p>©  David Obando. All rights reserved</p>
+                            <p>© David Obando. All rights reserved</p>
                         </div>
                     </footer>
                 </article>

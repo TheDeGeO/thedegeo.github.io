@@ -1,0 +1,136 @@
+/* ==== FOUNDATION VARIABLES ==== */
+/* Centralized CSS custom properties for consistent theming */
+
+:root {
+    /* ===== COLOR PALETTE ===== */
+    /* Gruvbox Material Dark Hard base colors */
+    --bg-color: #1d2021;
+    --bg-darker: #141617;
+    --bg-lighter: #282828;
+    --bg-light: #32302f;
+    --bg-highlight: #3c3836;
+    --bg-accent: #504945;
+    
+    --fg-color: #d4be98;
+    --fg-light: #ddc7a1;
+    --fg-muted: #a89984;
+    --fg-primary: var(--fg-light);
+    
+    /* Theme accent colors */
+    --red: #ea6962;
+    --red-dark: #c14a4a;
+    --green: #a9b665;
+    --green-dark: #6c782e;
+    --yellow: #d8a657;
+    --orange: #e78a4e;
+    --blue: #7daea3;
+    --blue-dark: #266b79;
+    --purple: #d3869b;
+    --aqua: #89b482;
+    
+    /* RGB variants for alpha transparency */
+    --blue-rgb: 125, 174, 163;
+    --green-rgb: 169, 182, 101;
+    --aqua-rgb: 137, 180, 130;
+    
+    /* ===== SEMANTIC COLORS ===== */
+    /* Primary brand colors */
+    --primary-color: var(--aqua);
+    --secondary-color: var(--green);
+    --accent-color: var(--blue);
+    
+    /* Content hierarchy colors */
+    --heading-color: var(--aqua);
+    --subheading-color: var(--green);
+    --highlight-color: var(--blue);
+    --text-color: var(--fg-color);
+    --link-color: var(--accent-color);
+    --link-hover-color: var(--primary-color);
+    
+    /* UI component colors */
+    --card-bg: var(--bg-lighter);
+    --form-bg: var(--bg-light);
+    --button-bg: var(--primary-color);
+    --button-text: var(--bg-darker);
+    --button-hover-bg: var(--accent-color);
+    
+    /* ===== LAYOUT & SPACING ===== */
+    /* Container sizing */
+    --container-width: 90%;
+    --container-max-width: 1200px;
+    --content-max-width: 800px;
+    --wide-content-max-width: 1000px;
+    
+    /* Border radius system */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 20px;
+    --radius-full: 50%;
+    
+    /* Spacing scale */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 2.5rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+    
+    /* Component spacing */
+    --card-padding: var(--space-md);
+    --section-padding: var(--space-2xl) 0;
+    --header-padding: var(--space-lg) 0;
+    --nav-padding: var(--space-sm) 0;
+    
+    /* ===== TYPOGRAPHY ===== */
+    /* Font families */
+    --font-primary: 'FantasqueSansMonoRegular', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-bold: 'FantasqueSansMonoBold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-mono: 'FantasqueSansMonoRegular', monospace;
+    
+    /* Font sizes */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+    
+    /* Line heights */
+    --leading-tight: 1.25;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.75;
+    
+    /* ===== SHADOWS & EFFECTS ===== */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+    --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.3);
+    --shadow-xl: 0 10px 35px rgba(0, 0, 0, 0.4);
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* ===== CATEGORY COLORS ===== */
+    /* For different content categories */
+    --category-cybersecurity: var(--green);
+    --category-music: var(--blue);
+    --category-portfolio: var(--purple);
+    --category-blog: var(--aqua);
+    --category-about: var(--yellow);
+    --category-contact: var(--orange);
+    
+    /* ===== Z-INDEX SCALE ===== */
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal-backdrop: 1040;
+    --z-modal: 1050;
+    --z-popover: 1060;
+    --z-tooltip: 1070;
+} 

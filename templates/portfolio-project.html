@@ -3,11 +3,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% PROJECT_TITLE %} - David Obando</title>
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fantasque-sans-mono" type="text/css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/components/portfolio.css">
+    <link rel="stylesheet" href="../css/main-unified.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body class="content-portfolio">
     <header class="site-header">
         <div class="container">
             <h1>David Obando</h1>
@@ -16,7 +15,10 @@
     </header>
     
     <nav>
-        <div class="container"><button class="menu-toggle" aria-label="Toggle navigation menu"><i class="fas fa-bars"></i></button>
+        <div class="container">
+            <button class="menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
             <ul><li class="home-button"><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
 <li><a href="../index.html#about">About</a></li>
 <li><a href="../index.html#blog">Blog</a></li>
@@ -29,71 +31,30 @@
     <main>
         <section>
             <div class="container">
-                <article class="project-content">
+                <article class="project-container">
                     <header class="project-header">
-                        <h1>{% PROJECT_TITLE %}</h1>
+                        <h1 class="project-title">{% PROJECT_TITLE %}</h1>
                         <div class="project-meta">
                             <div class="project-meta-item">
-                                <i class="fas fa-calendar"></i>
-                                <span>Completed: {% PROJECT_DATE %}</span>
+                                <i class="far fa-calendar-alt"></i>
+                                <time datetime="{% DATE %}">{% DATE_FORMATTED %}</time>
                             </div>
                             <div class="project-meta-item">
-                                <i class="fas fa-code-branch"></i>
-                                <span>Type: {% PROJECT_TYPE %}</span>
-                            </div>
-                            <div class="project-meta-item">
-                                <i class="fas fa-user-friends"></i>
-                                <span>Role: {% PROJECT_ROLE %}</span>
+                                <i class="fas fa-tag"></i>
+                                <span>{% PROJECT_TYPE %}</span>
                             </div>
                         </div>
                     </header>
                     
-                    <div class="project-gallery">
-                        {% PROJECT_GALLERY %}
+                    <div class="project-content">
+                        {% PROJECT_CONTENT %}
                     </div>
                     
-                    <div class="project-section">
-                        <h2>Project Overview</h2>
-                        {% PROJECT_OVERVIEW %}
-                    </div>
-                    
-                    <div class="project-section project-features">
-                        <h2>Key Features</h2>
-                        <ul>
-                            {% PROJECT_FEATURES %}
-                        </ul>
-                    </div>
-                    
-                    <div class="project-section">
-                        <h2>Technologies Used</h2>
-                        <div class="tech-stack">
-                            {% PROJECT_TECH_STACK %}
+                    <footer class="project-footer">
+                        <div class="nav-links">
+                            {% NAVIGATION %}
                         </div>
-                    </div>
-                    
-                    <div class="project-section">
-                        <h2>Challenges &amp; Solutions</h2>
-                        {% PROJECT_CHALLENGES %}
-                    </div>
-                    
-                    <div class="project-section">
-                        <h2>What I Learned</h2>
-                        {% PROJECT_LEARNING %}
-                    </div>
-                    
-                    <div class="project-links">
-                        {% if PROJECT_DEMO_LINK %}
-                        <a href="{% PROJECT_DEMO_LINK %}" class="project-link-btn">
-                            <i class="fas fa-globe"></i> Live Demo
-                        </a>
-                        {% endif %}
-                        
-                        {% if PROJECT_CODE_LINK %}
-                        <a href="{% PROJECT_CODE_LINK %}" class="project-link-btn">
-                            <i class="fab fa-github"></i> Source Code
-                        </a>
-                        {% endif %}
-                    </div>
+                    </footer>
                 </article>
             </div>
         </section>

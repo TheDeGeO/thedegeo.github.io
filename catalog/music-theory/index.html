@@ -3,12 +3,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Theory Library - David Obando</title>
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fantasque-sans-mono" type="text/css">
-    <link rel="stylesheet" href="../../css/main.css">
-    <link rel="stylesheet" href="../../css/components/blog.css">
-    <link rel="stylesheet" href="../../css/components/catalog.css">
+    <link rel="stylesheet" href="../../css/main-unified.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="music-theory">
+<body class="content-music">
     <header class="site-header">
         <div class="container">
             <h1>David Obando</h1>
@@ -33,52 +31,54 @@
     <main>
         <section>
             <div class="container">
-                <article class="blog-content">
+                <article class="article-container">
                     <div class="catalog-breadcrumbs">
                         <a href="../index.html">Catalog</a>
                         <span class="separator">/</span>
                         <span>Music Theory</span>
                     </div>
                     
-                    <header class="blog-header">
-                        <h1>Music Theory Library</h1>
-                        <div class="blog-meta">
-                            <span><i class="fas fa-music"></i> Articles and resources on music theory and composition</span>
+                    <header class="article-header">
+                        <h1 class="article-title">Music Theory Library</h1>
+                        <div class="article-meta">
+                            <span>Comprehensive resources on music theory and harmony</span>
                         </div>
                     </header>
                     
-                    <div class="section-description">
-                        <p>This library contains articles exploring various aspects of music theory, from the fundamentals of harmony and rhythm to advanced compositional techniques. Whether you're a beginner looking to understand basic concepts or an experienced musician seeking deeper insights, you'll find valuable resources here.</p>
-                    </div>
-                    
-                    <div class="search-container">
-                        <i class="fas fa-search search-icon"></i>
-                        <input type="text" id="articleSearch" class="search-input" placeholder="Search articles by title or topic...">
-                    </div>
-                    
-                    <div id="articlesList">
-                        <div class="article-card" data-tags="chords harmony theory naming notation jazz extended altered">
-                            <h3><a href="chord-naming.html">The Complete Guide to Chord Naming</a></h3>
-                            <div class="article-meta">
-                                <span><i class="far fa-calendar-alt"></i> May 21, 2025</span>
-                                <span><i class="far fa-clock"></i> 20 min read</span>
+                    <div class="article-content">
+                        <div class="section-description">
+                            <p>This library contains articles exploring various aspects of music theory, from the fundamentals of harmony and rhythm to advanced compositional techniques. Whether you're a beginner looking to understand basic concepts or an experienced musician seeking deeper insights, you'll find valuable resources here.</p>
+                        </div>
+                        
+                        <div class="search-container">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" id="articleSearch" class="search-input" placeholder="Search articles by title or topic...">
+                        </div>
+                        
+                        <div id="articlesList">
+                            <div class="article-card" data-tags="chords harmony theory naming notation jazz extended altered">
+                                <h3><a href="chord-naming.html">The Complete Guide to Chord Naming</a></h3>
+                                <div class="article-meta">
+                                    <span><i class="far fa-calendar-alt"></i> May 21, 2025</span>
+                                    <span><i class="far fa-clock"></i> 20 min read</span>
+                                </div>
+                                <p>A comprehensive exploration of chord naming conventions from basic triads to complex jazz voicings. Learn how to read, write and understand chord symbols for any musical context.</p>
+                                <div class="article-tags">
+                                    <span class="tag">Chords</span>
+                                    <span class="tag">Harmony</span>
+                                    <span class="tag">Jazz</span>
+                                </div>
                             </div>
-                            <p>A comprehensive exploration of chord naming conventions from basic triads to complex jazz voicings. Learn how to read, write and understand chord symbols for any musical context.</p>
-                            <div class="article-tags">
-                                <span class="tag">Chords</span>
-                                <span class="tag">Harmony</span>
-                                <span class="tag">Jazz</span>
+                            
                             </div>
                         </div>
                         
+                        <div id="noResults" class="no-results" style="display: none;">
+                            <p><i class="fas fa-search"></i> No articles found matching your search criteria.</p>
                         </div>
-                    </article></div>
-                    
-                    <div id="noResults" class="no-results" style="display: none;">
-                        <p><i class="fas fa-search"></i> No articles found matching your search criteria.</p>
                     </div>
-                
-            
+                </article>
+            </div>
         </section>
     </main>
     

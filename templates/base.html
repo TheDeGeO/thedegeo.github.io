@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% PAGE_TITLE %} - David Obando</title>
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fantasque-sans-mono" type="text/css">
-    <link rel="stylesheet" href="{% ROOT_PATH %}css/main.css">
+    <link rel="stylesheet" href="{% ROOT_PATH %}css/main-unified.css">
     <!-- Additional CSS files will be inserted here -->
     </head><body>{% ADDITIONAL_CSS %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -24,12 +24,37 @@
             <button class="menu-toggle" aria-label="Toggle navigation menu">
                 <i class="fas fa-bars"></i>
             </button>
-            <ul><li class="home-button"><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
-<li><a href="../index.html#about">About</a></li>
-<li><a href="../index.html#blog">Blog</a></li>
-<li><a href="../index.html#portfolio">Portfolio</a></li>
-<li><a href="../index.html#catalog">Catalog</a></li>
-<li><a href="../index.html#contact">Contact</a></li></ul>
+            
+            <!-- Option 1: Using custom nav-btn classes -->
+            <div class="nav-buttons">
+                <!-- Home button on the left -->
+                <a href="{% ROOT_PATH %}index.html" class="nav-btn nav-btn-home">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                
+                <!-- Other buttons grouped on the right -->
+                <div class="nav-buttons-group">
+                    <a href="{% ROOT_PATH %}index.html#about" class="nav-btn">About</a>
+                    <a href="{% ROOT_PATH %}index.html#blog" class="nav-btn">Blog</a>
+                    <a href="{% ROOT_PATH %}index.html#portfolio" class="nav-btn">Portfolio</a>
+                    <a href="{% ROOT_PATH %}index.html#catalog" class="nav-btn">Catalog</a>
+                    <a href="{% ROOT_PATH %}index.html#contact" class="nav-btn">Contact</a>
+                </div>
+            </div>
+            
+            <!-- Option 2: Traditional ul/li with button styling (commented out) -->
+            <!--
+            <ul>
+                <li><a href="{% ROOT_PATH %}index.html" class="btn btn-primary btn-small">
+                    <i class="fas fa-home"></i> Home
+                </a></li>
+                <li><a href="{% ROOT_PATH %}index.html#about" class="btn btn-outline btn-small">About</a></li>
+                <li><a href="{% ROOT_PATH %}index.html#blog" class="btn btn-outline btn-small">Blog</a></li>
+                <li><a href="{% ROOT_PATH %}index.html#portfolio" class="btn btn-outline btn-small">Portfolio</a></li>
+                <li><a href="{% ROOT_PATH %}index.html#catalog" class="btn btn-outline btn-small">Catalog</a></li>
+                <li><a href="{% ROOT_PATH %}index.html#contact" class="btn btn-outline btn-small">Contact</a></li>
+            </ul>
+            -->
         </div>
     </nav>
     
@@ -66,14 +91,14 @@
             
             // Mobile menu toggle
             const menuToggle = document.querySelector('.menu-toggle');
-            const navMenu = document.querySelector('nav ul');
+            const navButtons = document.querySelector('.nav-buttons');
             
-            if (menuToggle) {
+            if (menuToggle && navButtons) {
                 menuToggle.addEventListener('click', function() {
-                    navMenu.classList.toggle('active');
+                    navButtons.classList.toggle('active');
                     // Change icon based on menu state
                     const icon = this.querySelector('i');
-                    if (navMenu.classList.contains('active')) {
+                    if (navButtons.classList.contains('active')) {
                         icon.classList.remove('fa-bars');
                         icon.classList.add('fa-times');
                     } else {
@@ -83,10 +108,10 @@
                 });
                 
                 // Close menu when clicking on a link
-                const navLinks = document.querySelectorAll('nav ul li a');
+                const navLinks = document.querySelectorAll('.nav-btn');
                 navLinks.forEach(link => {
                     link.addEventListener('click', function() {
-                        navMenu.classList.remove('active');
+                        navButtons.classList.remove('active');
                         const icon = menuToggle.querySelector('i');
                         icon.classList.remove('fa-times');
                         icon.classList.add('fa-bars');

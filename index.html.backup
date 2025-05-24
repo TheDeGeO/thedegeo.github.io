@@ -1,13 +1,14 @@
 <!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sin Wave</title>
+    <title>My Personal Website</title>
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fantasque-sans-mono" type="text/css">
-    <link rel="stylesheet" href="css/main-unified.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/home.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    </head>
-    <body>
+</head>
+<body>
     <header class="site-header">
         <div class="container">
             <h1>David Obando</h1>
@@ -20,30 +21,19 @@
             <button class="menu-toggle" aria-label="Toggle navigation menu">
                 <i class="fas fa-bars"></i>
             </button>
-            
-            <!-- New button-based navigation -->
-            <div class="nav-buttons">
-                <!-- Home button on the left -->
-                <a href="index.html" class="nav-btn nav-btn-home">
-                    <i class="fas fa-home"></i> Home
-                </a>
-                
-                <!-- Other buttons grouped on the right -->
-                <div class="nav-buttons-group">
-                    <a href="index.html#about" class="nav-btn">About</a>
-                    <a href="index.html#blog" class="nav-btn">Blog</a>
-                    <a href="index.html#portfolio" class="nav-btn">Portfolio</a>
-                    <a href="catalog/index.html" class="nav-btn">Catalog</a>
-                    <a href="index.html#contact" class="nav-btn">Contact</a>
-                </div>
-            </div>
+            <ul><li class="home-button"><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+<li><a href="index.html#about">About</a></li>
+<li><a href="index.html#blog">Blog</a></li>
+<li><a href="index.html#portfolio">Portfolio</a></li>
+<li><a href="index.html#catalog">Catalog</a></li>
+<li><a href="index.html#contact">Contact</a></li></ul>
         </div>
     </nav>
     
     <main>
         <section id="about">
             <div class="container">
-                <div class="home-panel-full">
+                <div class="home-panel full-width">
                     <h2>About Me</h2>
                     <div class="about-content">
                         <div class="about-image">
@@ -69,7 +59,7 @@
         
         <section id="blog">
             <div class="container">
-                <div class="home-panel-full">
+                <div class="home-panel full-width">
                     <h2>Latest Articles</h2>
                     <div class="home-featured-content">
                         <div class="content-card">
@@ -94,7 +84,7 @@
         
         <section id="catalog">
             <div class="container">
-                <div class="home-panel-full">
+                <div class="home-panel full-width">
                     <h2>Content Catalog</h2>
                     <p class="catalog-intro">Browse my articles and resources by category.</p>
                     
@@ -125,50 +115,6 @@
             </div>
         </section>
         
-        <section id="contact">
-            <div class="container">
-                <div class="home-panel-full">
-                    <h2>Get In Touch</h2>
-                    <p>Feel free to reach out if you have questions, want to collaborate, or just want to connect!</p>
-                    
-                    <div class="home-featured-content">
-                        <div class="content-card">
-                            <div class="card-content">
-                                <h3>Connect With Me</h3>
-                                <p>Find me on various platforms:</p>
-                                <div class="social-links">
-                                    <a href="https://github.com/TheDeGeO" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                                    <a href="https://www.linkedin.com/in/david-obando-blanco-566854221" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                                    <a href="https://rateyourmusic.com/~TheDeGeO" aria-label="Rate Your Music"><i class="fa-solid fa-headphones"></i></a>
-                                    <a href="https://t.me/ptsdkei" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="content-card">
-                            <div class="card-content">
-                                <h3>Send a Message</h3>
-                                <form class="form" id="contact-form">
-                                    <div class="form-group">
-                                        <label for="name">Name</label>
-                                        <input type="text" id="name" name="name" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email">Email</label>
-                                        <input type="email" id="email" name="email" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="message">Message</label>
-                                        <textarea id="message" name="message" required></textarea>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Send Message</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
     
     <footer>
@@ -198,14 +144,14 @@
             
             // Mobile menu toggle
             const menuToggle = document.querySelector('.menu-toggle');
-            const navButtons = document.querySelector('.nav-buttons');
+            const navMenu = document.querySelector('nav ul');
             
-            if (menuToggle && navButtons) {
+            if (menuToggle) {
                 menuToggle.addEventListener('click', function() {
-                    navButtons.classList.toggle('active');
+                    navMenu.classList.toggle('active');
                     // Change icon based on menu state
                     const icon = this.querySelector('i');
-                    if (navButtons.classList.contains('active')) {
+                    if (navMenu.classList.contains('active')) {
                         icon.classList.remove('fa-bars');
                         icon.classList.add('fa-times');
                     } else {
@@ -215,10 +161,10 @@
                 });
                 
                 // Close menu when clicking on a link
-                const navLinks = document.querySelectorAll('.nav-btn');
+                const navLinks = document.querySelectorAll('nav ul li a');
                 navLinks.forEach(link => {
                     link.addEventListener('click', function() {
-                        navButtons.classList.remove('active');
+                        navMenu.classList.remove('active');
                         const icon = menuToggle.querySelector('i');
                         icon.classList.remove('fa-times');
                         icon.classList.add('fa-bars');

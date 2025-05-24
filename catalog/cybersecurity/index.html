@@ -3,12 +3,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cybersecurity Library - David Obando</title>
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fantasque-sans-mono" type="text/css">
-    <link rel="stylesheet" href="../../css/main.css">
-    <link rel="stylesheet" href="../../css/components/blog.css">
-    <link rel="stylesheet" href="../../css/components/catalog.css">
+    <link rel="stylesheet" href="../../css/main-unified.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="cybersecurity">
+<body class="content-cybersecurity">
     <header class="site-header">
         <div class="container">
             <h1>David Obando</h1>
@@ -22,82 +20,82 @@
                 <i class="fas fa-bars"></i>
             </button>
             <ul><li class="home-button"><a href="../../index.html"><i class="fas fa-home"></i> Home</a></li>
-<li><a href="../../index.html#about">About</a></li>
-<li><a href="../../index.html#blog">Blog</a></li>
-<li><a href="../../index.html#portfolio">Portfolio</a></li>
-<li><a href="../../index.html#catalog">Catalog</a></li>
-<li><a href="../../index.html#contact">Contact</a></li></ul>
+<a href="../../index.html#about" class="btn-secondary">About</a>
+<a href="../../index.html#blog" class="btn-secondary">Blog</a>
+<a href="../../index.html#portfolio" class="btn-secondary">Portfolio</a>
+<a href="../../index.html#catalog" class="btn-secondary">Catalog</a>
+<a href="../../index.html#contact" class="btn-secondary">Contact</a></ul>
         </div>
     </nav>
     
     <main>
         <section>
             <div class="container">
-                <article class="blog-content">
+                <article class="article-container">
                     <div class="catalog-breadcrumbs">
                         <a href="../index.html">Catalog</a>
                         <span class="separator">/</span>
                         <span>Cybersecurity</span>
                     </div>
                     
-                    <header class="blog-header">
-                        <h1>Cybersecurity Library</h1>
-                        <div class="blog-meta">
-                            <span><i class="fas fa-shield-alt"></i> Articles and resources on cybersecurity and online safety</span>
+                    <header class="article-header">
+                        <h1 class="article-title">Cybersecurity Library</h1>
+                        <div class="article-meta">
+                            <span>Articles on web security, account protection, and best practices</span>
                         </div>
                     </header>
                     
-                    <div class="section-description">
-                        <p>This library contains articles on various cybersecurity topics, from personal account security to web application vulnerabilities and defensive coding practices. Whether you're looking to improve your personal online safety or enhance your technical security knowledge, you'll find valuable resources here.</p>
-                    </div>
-                    
-                    <div class="search-container">
-                        <i class="fas fa-search search-icon"></i>
-                        <input type="text" id="articleSearch" class="search-input" placeholder="Search articles by title or topic...">
-                    </div>
-                    
-                    <div class="filter-categories">
-                        <span class="category-tag" data-category="all">All Topics</span>
-                        <span class="category-tag" data-category="personal">Personal Security</span>
-                        <span class="category-tag" data-category="web">Web Security</span>
-                        <span class="category-tag" data-category="network">Network Security</span>
-                        <span class="category-tag" data-category="cryptography">Cryptography</span>
-                    </div>
-                    
-                    <div id="articlesList">
-                        <div class="article-card" data-tags="personal security accounts passwords 2fa mfa authentication">
-                            <h3><a href="securing-accounts.html">Protecting Your Online Accounts: Best Practices and Common Threats</a></h3>
-                            <div class="article-meta">
-                                <span><i class="far fa-calendar-alt"></i> May 22, 2025</span>
-                                <span><i class="far fa-clock"></i> 10 min read</span>
-                            </div>
-                            <p>A comprehensive guide to securing your online accounts against common threats including phishing, credential stuffing, and brute force attacks. Learn about password managers, multi-factor authentication, and recognizing social engineering attempts.</p>
-                            <div class="article-tags">
-                                <span class="tag">Account Security</span>
-                                <span class="tag">Authentication</span>
-                                <span class="tag">Social Engineering</span>
-                            </div>
+                    <div class="article-content">
+                        <div class="section-description">
+                            <p>This library contains articles on various cybersecurity topics, from personal account security to web application vulnerabilities and defensive coding practices. Whether you're looking to improve your personal online safety or enhance your technical security knowledge, you'll find valuable resources here.</p>
                         </div>
+                        
+                        <div class="search-container">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" id="articleSearch" class="search-input" placeholder="Search articles by title or topic...">
+                        </div>
+                        
+                        <div class="filter-categories">
+                            <span class="category-tag" data-category="all">All Topics</span>
+                            <span class="category-tag" data-category="personal">Personal Security</span>
+                            <span class="category-tag" data-category="web">Web Security</span>
+                            <span class="category-tag" data-category="network">Network Security</span>
+                            <span class="category-tag" data-category="cryptography">Cryptography</span>
+                        </div>
+                        
+                        <div id="articlesList">
+                            <div class="article-card" data-tags="personal security accounts passwords 2fa mfa authentication">
+                                <h3><a href="securing-accounts.html">Protecting Your Online Accounts: Best Practices and Common Threats</a></h3>
+                                <div class="article-meta">
+                                    <span><i class="far fa-calendar-alt"></i> May 22, 2025</span>
+                                    <span><i class="far fa-clock"></i> 10 min read</span>
+                                </div>
+                                <p>A comprehensive guide to securing your online accounts against common threats including phishing, credential stuffing, and brute force attacks. Learn about password managers, multi-factor authentication, and recognizing social engineering attempts.</p>
+                                <div class="article-tags">
+                                    <span class="tag">Account Security</span>
+                                    <span class="tag">Authentication</span>
+                                    <span class="tag">Social Engineering</span>
+                                </div>
+                            </div>
 
-                        <div class="article-card" data-tags="web security vulnerabilities xss sql-injection csrf security-headers">
-                            <h3><a href="web-security.html">Introduction to Web Security: Concepts All Developers Should Know</a></h3>
-                            <div class="article-meta">
-                                <span><i class="far fa-calendar-alt"></i> May 20, 2025</span>
-                                <span><i class="far fa-clock"></i> 15 min read</span>
-                            </div>
-                            <p>An essential guide covering fundamental web security concepts including common vulnerabilities like XSS and SQL injection, security headers, input validation, and secure coding practices. Learn how to protect your web applications from common attack vectors.</p>
-                            <div class="article-tags">
-                                <span class="tag">Web Security</span>
-                                <span class="tag">Secure Coding</span>
-                                <span class="tag">Vulnerabilities</span>
+                            <div class="article-card" data-tags="web security vulnerabilities xss sql-injection csrf security-headers">
+                                <h3><a href="web-security.html">Introduction to Web Security: Concepts All Developers Should Know</a></h3>
+                                <div class="article-meta">
+                                    <span><i class="far fa-calendar-alt"></i> May 20, 2025</span>
+                                    <span><i class="far fa-clock"></i> 15 min read</span>
+                                </div>
+                                <p>An essential guide covering fundamental web security concepts including common vulnerabilities like XSS and SQL injection, security headers, input validation, and secure coding practices. Learn how to protect your web applications from common attack vectors.</p>
+                                <div class="article-tags">
+                                    <span class="tag">Web Security</span>
+                                    <span class="tag">Secure Coding</span>
+                                    <span class="tag">Vulnerabilities</span>
+                                </div>
                             </div>
                         </div>
                         
-                        
-                    </div>
-                    
-                    <div id="noResults" class="no-results" style="display: none;">
-                        <p><i class="fas fa-search"></i> No articles found matching your search criteria.</p>
+                        <div id="noResults" class="no-results" style="display: none;">
+                            <p><i class="fas fa-search"></i> No articles found matching your search criteria.</p>
+                        </div>
                     </div>
                 </article>
             </div>
