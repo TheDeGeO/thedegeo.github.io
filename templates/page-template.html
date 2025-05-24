@@ -3,27 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David Obando</title>
+    <title>{% PAGE_TITLE %} - David Obando</title>
     
-    <link rel="stylesheet" href="css/main-unified.css">
-    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="{% ROOT_PATH %}css/main-unified.css">
+    <link rel="stylesheet" href="{% ROOT_PATH %}css/fonts.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    {% HEAD_CONTENT %}
 </head>
-<body>
+<body class="{% CONTENT_TYPE %}">
     <!-- Components will be automatically loaded here -->
     <div id="site-header"></div>
     <div id="site-navigation"></div>
     
     <main>
-        <!-- Content goes here -->
+        {% MAIN_CONTENT %}
     </main>
     
     <!-- Footer will be automatically loaded here -->
     <div id="site-footer"></div>
     
-    <!-- Load component system first -->
-    <script src="js/components.js"></script>
+    <!-- Load component system -->
+    <script src="{% ROOT_PATH %}js/components.js"></script>
     <!-- Load main functionality -->
-    <script src="js/main.js"></script>
+    <script src="{% ROOT_PATH %}js/main.js"></script>
+    {% ADDITIONAL_SCRIPTS %}
 </body>
-</html>
+</html> 

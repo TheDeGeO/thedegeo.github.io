@@ -1,92 +1,60 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% TITLE %} - David Obando</title>
-    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fantasque-sans-mono" type="text/css">
-    <link rel="stylesheet" href="../css/main-unified.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body class="{% CONTENT_TYPE %}">
-    <header class="site-header">
-        <div class="container">
-            <h1>David Obando</h1>
-            <p class="tagline">Developer | Cybersecurity Enthusiast | Musician | Language Learner</p>
-        </div>
-    </header>
+    <title>{% BLOG_TITLE %} - David Obando</title>
     
-    <nav>
-        <div class="container">
-            <button class="menu-toggle" aria-label="Toggle navigation menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul><li class="home-button"><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
-<li><a href="../index.html#about">About</a></li>
-<li><a href="../index.html#blog">Blog</a></li>
-<li><a href="../index.html#portfolio">Portfolio</a></li>
-<li><a href="../index.html#catalog">Catalog</a></li>
-<li><a href="../index.html#contact">Contact</a></li></ul>
-        </div>
-    </nav>
+    <link rel="stylesheet" href="{% ROOT_PATH %}css/main-unified.css">
+    <link rel="stylesheet" href="{% ROOT_PATH %}css/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    {% ADDITIONAL_CSS %}
+</head>
+<body class="content-blog">
+    <!-- Components will be automatically loaded here -->
+    <div id="site-header"></div>
+    <div id="site-navigation"></div>
     
     <main>
         <section>
             <div class="container">
                 <article class="article-container">
+                    {% BREADCRUMBS %}
+                    
                     <header class="article-header">
-                        <h1 class="article-title">{% TITLE %}</h1>
+                        <h1 class="article-title">{% BLOG_TITLE %}</h1>
                         <div class="article-meta">
                             <div class="article-meta-item">
                                 <i class="far fa-calendar-alt"></i>
-                                <time datetime="{% DATE %}">{% DATE_FORMATTED %}</time>
+                                <time datetime="{% PUBLISH_DATE %}">{% PUBLISH_DATE_FORMATTED %}</time>
                             </div>
                             <div class="article-meta-item">
-                                <i class="fas fa-tag"></i>
-                                <span>{% CATEGORY %}</span>
+                                <i class="far fa-clock"></i>
+                                <span>{% READ_TIME %} min read</span>
                             </div>
+                            {% CATEGORY %}
                         </div>
                     </header>
                     
                     <div class="article-content">
-                        {% CONTENT %}
-                    </div>
-                    
-                    <footer class="article-footer">
-                        <div class="nav-links">
-                            {% NAVIGATION %}
-                        </div>
+                        {% BLOG_CONTENT %}
                         
-                        <div class="article-comments">
-                            <h3>Comments</h3>
-                            <!-- Comment system integration would go here -->
-                            <p>© David Obando. All rights reserved</p>
-                        </div>
-                    </footer>
+                        <footer class="article-footer">
+                            {% NAVIGATION_LINKS %}
+                        </footer>
+                    </div>
                 </article>
             </div>
         </section>
     </main>
     
-    <footer>
-        <div class="container">
-            <p>© <script>document.write(new Date().getFullYear())</script> {% SITE_NAME %}. {% COPYRIGHT_TEXT %}</p>
-        </div>
-    </footer>
+    <!-- Footer will be automatically loaded here -->
+    <div id="site-footer"></div>
     
-    <script src="../js/main.js"></script>
-
- <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check if this is the home page
-            const isHomePage = window.location.pathname.endsWith('index.html') || 
-                               window.location.pathname.endsWith('/') ||
-                               window.location.pathname === '';
-            
-            // Get the header element
-            const header = document.querySelector('.site-header');
-            
-            // Hide header if not on home page
-            if (!isHomePage) {
-                header.style.display = 'none';
-            }
-        });
-      </script></body></html>
+    <!-- Load component system first -->
+    <script src="{% ROOT_PATH %}js/components.js"></script>
+    <!-- Load main functionality -->
+    <script src="{% ROOT_PATH %}js/main.js"></script>
+    {% ADDITIONAL_SCRIPTS %}
+</body>
+</html>

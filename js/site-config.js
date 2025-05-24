@@ -10,7 +10,7 @@ const siteConfig = {
     tagline: "Developer | Cybersecurity Enthusiast | Musician | Language Learner",
     
     // Contact and social
-    email: "davidobandoblanco@gmail.com",
+    email: "davidobando@protonmail.com",
     github: "TheDeGeO",
     twitter: "TheDeGeO",
     linkedin: "david-obando-blanco-566854221",

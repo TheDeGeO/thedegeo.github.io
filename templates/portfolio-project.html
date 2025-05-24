@@ -1,48 +1,38 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% PROJECT_TITLE %} - David Obando</title>
-    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fantasque-sans-mono" type="text/css">
-    <link rel="stylesheet" href="../css/main-unified.css">
+    
+    <link rel="stylesheet" href="{% ROOT_PATH %}css/main-unified.css">
+    <link rel="stylesheet" href="{% ROOT_PATH %}css/fonts.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    {% ADDITIONAL_CSS %}
 </head>
 <body class="content-portfolio">
-    <header class="site-header">
-        <div class="container">
-            <h1>David Obando</h1>
-            <p class="tagline">Developer | Cybersecurity Enthusiast | Musician | Language Learner</p>
-        </div>
-    </header>
-    
-    <nav>
-        <div class="container">
-            <button class="menu-toggle" aria-label="Toggle navigation menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul><li class="home-button"><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
-<li><a href="../index.html#about">About</a></li>
-<li><a href="../index.html#blog">Blog</a></li>
-<li><a href="../index.html#portfolio">Portfolio</a></li>
-<li><a href="../index.html#catalog">Catalog</a></li>
-<li><a href="../index.html#contact">Contact</a></li></ul>
-        </div>
-    </nav>
+    <!-- Components will be automatically loaded here -->
+    <div id="site-header"></div>
+    <div id="site-navigation"></div>
     
     <main>
         <section>
             <div class="container">
                 <article class="project-container">
+                    {% BREADCRUMBS %}
+                    
                     <header class="project-header">
                         <h1 class="project-title">{% PROJECT_TITLE %}</h1>
                         <div class="project-meta">
                             <div class="project-meta-item">
                                 <i class="far fa-calendar-alt"></i>
-                                <time datetime="{% DATE %}">{% DATE_FORMATTED %}</time>
+                                <time datetime="{% PROJECT_DATE %}">{% PROJECT_DATE_FORMATTED %}</time>
                             </div>
                             <div class="project-meta-item">
-                                <i class="fas fa-tag"></i>
-                                <span>{% PROJECT_TYPE %}</span>
+                                <i class="fas fa-code"></i>
+                                <span>{% TECH_STACK %}</span>
                             </div>
+                            {% PROJECT_STATUS %}
                         </div>
                     </header>
                     
@@ -51,36 +41,21 @@
                     </div>
                     
                     <footer class="project-footer">
-                        <div class="nav-links">
-                            {% NAVIGATION %}
-                        </div>
+                        {% PROJECT_LINKS %}
+                        {% NAVIGATION_LINKS %}
                     </footer>
                 </article>
             </div>
         </section>
     </main>
     
-    <footer>
-        <div class="container">
-            <p>© <script>document.write(new Date().getFullYear())</script> David Obando. All rights reserved</p>
-        </div>
-    </footer>
+    <!-- Footer will be automatically loaded here -->
+    <div id="site-footer"></div>
     
-    <script src="../js/main.js"></script>
-
- <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check if this is the home page
-            const isHomePage = window.location.pathname.endsWith('index.html') || 
-                               window.location.pathname.endsWith('/') ||
-                               window.location.pathname === '';
-            
-            // Get the header element
-            const header = document.querySelector('.site-header');
-            
-            // Hide header if not on home page
-            if (!isHomePage) {
-                header.style.display = 'none';
-            }
-        });
-      </script></body></html>
+    <!-- Load component system first -->
+    <script src="{% ROOT_PATH %}js/components.js"></script>
+    <!-- Load main functionality -->
+    <script src="{% ROOT_PATH %}js/main.js"></script>
+    {% ADDITIONAL_SCRIPTS %}
+</body>
+</html>

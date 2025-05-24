@@ -126,6 +126,12 @@
     min-width: 300px;
 }
 
+.about-contact {
+    text-align: center;
+    font-style: italic;
+    color: var(--fg-muted);
+}
+
 /* ===== CATALOG SECTION STYLES ===== */
 .category-heading {
     text-align: center;
