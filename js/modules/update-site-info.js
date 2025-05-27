@@ -456,23 +456,6 @@ function updateHtmlFile(filePath) {
       }
     }
     
-    // Ensure font awesome is loaded
-    let fontAwesome = Array.from(document.querySelectorAll('link')).find(link => 
-      link.getAttribute('href').includes('font-awesome') ||
-      link.getAttribute('href').includes('fontawesome')
-    );
-    
-    if (!fontAwesome) {
-      const head = document.querySelector('head');
-      if (head) {
-        fontAwesome = document.createElement('link');
-        fontAwesome.setAttribute('rel', 'stylesheet');
-        fontAwesome.setAttribute('href', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
-        head.appendChild(fontAwesome);
-        console.log(`  Added Font Awesome CSS`);
-      }
-    }
-    
     // Ensure main CSS files are loaded
     let mainCss = Array.from(document.querySelectorAll('link')).find(link => 
       link.getAttribute('href').includes('main-unified.css')
