@@ -1,117 +1,51 @@
 /* Code highlighting and code block styles */
 
-/* Import highlight.js base styles */
-@import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css');
-
-
-/* Code block styling */
+/* Base code block styling */
 pre {
     background: var(--bg-color) !important;
     border-radius: var(--radius-lg);
     overflow-x: auto;
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--bg-accent);
+    position: relative;
+    margin: 1.5rem 0;
+    padding: 1rem;
+}
+
+/* Add language label */
+pre::before {
+    content: attr(data-language);
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    font-size: var(--text-xs);
+    color: var(--fg-muted);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
 }
 
 code {
     font-family: var(--font-mono);
     font-size: var(--text-sm);
     line-height: var(--leading-normal);
+    display: block;
 }
 
-/* Gruvbox Material Dark theme for code highlighting */
+/* Highlight.js theme customization */
 .hljs {
-    background: var(--bg-color) !important;
+    background: transparent !important;
     color: var(--fg-light);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
+    padding: 0;
 }
 
-.hljs-comment,
-.hljs-quote {
-    color: var(--fg-muted);
-    font-style: italic;
-}
-
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-subst {
-    color: var(--red);
-}
-
-.hljs-number,
-.hljs-literal,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag .hljs-attr {
-    color: var(--purple);
-}
-
-.hljs-string,
-.hljs-doctag {
-    color: var(--green);
-}
-
-.hljs-title,
-.hljs-section,
-.hljs-selector-id {
-    color: var(--yellow);
-    font-weight: bold;
-}
-
-.hljs-subst {
-    font-weight: normal;
-}
-
-.hljs-type,
-.hljs-class .hljs-title {
-    color: var(--aqua);
-    font-weight: bold;
-}
-
-.hljs-tag,
-.hljs-name,
-.hljs-attribute {
-    color: var(--blue);
-    font-weight: normal;
-}
-
-.hljs-regexp,
-.hljs-link {
-    color: var(--green);
-}
-
-.hljs-symbol,
-.hljs-bullet {
-    color: var(--blue);
-}
-
-.hljs-built_in,
-.hljs-builtin-name {
-    color: var(--aqua);
-}
-
-.hljs-meta {
-    color: var(--fg-muted);
-    font-weight: bold;
-}
-
-.hljs-deletion {
-    background: var(--red);
-}
-
-.hljs-addition {
-    background: var(--green);
-}
-
-.hljs-emphasis {
-    font-style: italic;
-}
-
-.hljs-strong {
-    font-weight: bold;
-}
-
+/* Customize specific token colors */
+.hljs-keyword { color: var(--red); }
+.hljs-string { color: var(--green); }
+.hljs-number { color: var(--purple); }
+.hljs-function { color: var(--aqua); }
+.hljs-title { color: var(--yellow); }
+.hljs-attr { color: var(--blue); }
+.hljs-comment { color: var(--fg-muted); font-style: italic; }
 
 /* Inline code styling */
 :not(pre) > code {
@@ -119,5 +53,45 @@ code {
     padding: 0.2em 0.4em;
     border-radius: var(--radius-sm);
     font-size: 0.9em;
+    color: var(--fg-light);
+    display: inline;
+}
+
+/* Loading state */
+pre.loading {
+    position: relative;
+}
+
+pre.loading::after {
+    content: "Loading...";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--fg-muted);
+}
+
+/* Copy button */
+pre .copy-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 2.5rem;
+    padding: 0.25rem 0.5rem;
+    font-size: var(--text-xs);
+    color: var(--fg-muted);
+    background: var(--bg-accent);
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+pre:hover .copy-button {
+    opacity: 1;
+}
+
+.copy-button:hover {
+    background: var(--bg-highlight);
     color: var(--fg-light);
 }

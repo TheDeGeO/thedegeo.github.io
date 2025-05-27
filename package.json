@@ -14,9 +14,10 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "highlight.js": "^11.11.1",
     "jsdom": "^21.1.1"
   },
   "devDependencies": {
     "http-server": "^14.1.1"
   }
-} 
+}
