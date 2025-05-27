@@ -3,19 +3,17 @@
 /* Import highlight.js base styles */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css');
 
-/* Code block styling - needs to be more specific than highlight.js */
+
+/* Code block styling */
 pre {
     background: var(--bg-color) !important;
     border-radius: var(--radius-lg);
-    padding: var(--space-md);
-    margin: var(--space-md) 0;
     overflow-x: auto;
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--bg-accent);
 }
 
-pre code {
-    background: var(--bg-color) !important;
+code {
     font-family: var(--font-mono);
     font-size: var(--text-sm);
     line-height: var(--leading-normal);
@@ -25,6 +23,8 @@ pre code {
 .hljs {
     background: var(--bg-color) !important;
     color: var(--fg-light);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
 }
 
 .hljs-comment,
@@ -111,6 +111,7 @@ pre code {
 .hljs-strong {
     font-weight: bold;
 }
+
 
 /* Inline code styling */
 :not(pre) > code {
