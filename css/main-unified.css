@@ -9,7 +9,7 @@
 @import url('./foundation/variables.css');
 @import url('./foundation/base.css');
 @import url('./foundation/layout.css');
-
+@import url('./foundation/mobile.css');
 /* ===== COMPONENT LAYER ===== */
 /* Reusable UI components */
 @import url('./components/ui-components.css');
@@ -47,7 +47,6 @@
 .catalog-breadcrumbs {
     display: flex;
     align-items: center;
-    margin-bottom: var(--space-lg);
     font-size: var(--text-sm);
 }
 

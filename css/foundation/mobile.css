@@ -1,0 +1,154 @@
+/* ==== MOBILE STYLES ==== */
+/* Mobile-specific styles for responsive design */
+
+@media screen and (max-width: 768px) {
+    /* Container width adjustments */
+    .container,
+    .content-container,
+    .wide-content-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: var(--space-sm);
+        padding-right: var(--space-sm);
+        margin: 0;
+    }
+
+    /* Header adjustments */
+    header {
+        height: var(--header-height-mobile);
+        width: 100%;
+    }
+
+    header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--space-md);
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    header h1 {
+        font-size: var(--text-xl);
+        margin: 0;
+        text-align: left;
+        flex-shrink: 0;
+    }
+
+    .tagline {
+        font-size: var(--text-xs);
+        text-align: right;
+        margin: 0;
+        flex-grow: 1;
+    }
+
+    /* Navigation adjustments */
+    nav {
+        height: var(--navbar-height-mobile);
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: var(--z-fixed);
+    }
+
+    nav .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .menu-toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: var(--space-sm);
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        color: var(--fg-light);
+    }
+
+    .menu-toggle i {
+        font-size: var(--text-xl);
+    }
+
+    .nav-buttons {
+        display: none;
+        position: fixed;
+        top: var(--navbar-height-mobile);
+        left: 0;
+        right: 0;
+        background-color: var(--bg-darker);
+        flex-direction: column;
+        padding: var(--space-sm);
+        border-top: 1px solid var(--bg-highlight);
+        box-shadow: var(--shadow-lg);
+        z-index: var(--z-dropdown);
+    }
+
+    .nav-buttons.active {
+        display: flex;
+    }
+
+    .nav-buttons-group {
+        flex-direction: column;
+        width: 100%;
+        gap: var(--space-xs);
+    }
+
+    .nav-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding: var(--space-sm);
+    }
+
+    .nav-btn-home {
+        margin-bottom: var(--space-sm);
+    }
+
+    /* Grid adjustments */
+    .featured-content,
+    .grid,
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-md);
+        width: 100%;
+    }
+
+    /* Section adjustments */
+    section {
+        padding: var(--space-lg) 0;
+        width: 100%;
+    }
+
+    /* Content panels */
+    .home-panel-full,
+    .article-container,
+    .project-container,
+    .blog-content {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    /* Adjust body padding for smaller header */
+    body {
+        padding-top: var(--navbar-height-mobile);
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* Force all flex containers to be full width in mobile */
+    .flex {
+        width: 100%;
+    }
+} 

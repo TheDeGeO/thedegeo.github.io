@@ -14,6 +14,9 @@
     text-align: center;
     transition: background-color var(--transition-normal), transform var(--transition-fast);
     line-height: 1;
+    white-space: normal;
+    max-width: 100%;
+    overflow-wrap: break-word;
 }
 
 .btn-primary {
@@ -181,6 +184,8 @@
 .form-group textarea,
 .form-group select {
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     padding: var(--space-xs) var(--space-sm);
     border: 1px solid var(--bg-highlight);
     border-radius: var(--radius-md);
@@ -251,6 +256,8 @@
     display: flex;
     justify-content: space-between;
     margin-top: var(--space-lg);
+    flex-wrap: wrap;
+    gap: var(--space-sm);
 }
 
 .nav-link {
@@ -259,6 +266,10 @@
     padding: var(--space-xs) var(--space-sm);
     border-radius: var(--radius-md);
     transition: background-color var(--transition-normal), color var(--transition-normal);
+    display: inline-block;
+    margin-bottom: var(--space-xs);
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .nav-link:hover {
@@ -278,6 +289,7 @@
     align-items: center;
     flex-wrap: wrap;
     gap: var(--space-xs);
+    z-index: var(--z-fixed);
 }
 
 .nav-buttons-group {
@@ -331,6 +343,8 @@
     align-items: center;
     margin-bottom: var(--space-lg);
     font-size: var(--text-sm);
+    flex-wrap: wrap;
+    gap: var(--space-xs);
 }
 
 .breadcrumbs a {
@@ -380,10 +394,13 @@
 .search-container {
     position: relative;
     margin: var(--space-lg) 0;
+    width: 100%;
 }
 
 .search-input {
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     padding: var(--space-sm) var(--space-sm) var(--space-sm) 2.5rem;
     border: 1px solid var(--bg-highlight);
     border-radius: var(--radius-lg);
@@ -500,5 +517,25 @@
         width: 100%;
         justify-content: center;
         margin-bottom: 0;
+    }
+
+    .nav-buttons {
+        width: 100%;
+        left: 0;
+        right: 0;
+    }
+    
+    .nav-btn {
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
+    
+    .search-input {
+        font-size: var(--text-sm);
+        padding: var(--space-xs) var(--space-xs) var(--space-xs) 2rem;
+    }
+    
+    .search-icon {
+        font-size: var(--text-sm);
     }
 } 
