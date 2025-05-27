@@ -3,39 +3,11 @@
  * Single source of truth for all font imports across the site
  */
 
-/* Font Awesome Kit - More reliable than CDN */
-@import url('https://kit.fontawesome.com/1234567890.css');
+/* Font Awesome for icons */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');
 
 /* Try multiple CDN sources for better reliability */
 @import url('https://fonts.cdnfonts.com/css/fantasque-sans-mono');
-
-/* Alternative: Define font-face directly if CDN fails */
-@font-face {
-    font-family: 'Fantasque Sans Mono';
-    src: url('https://cdn.jsdelivr.net/gh/belluzj/fantasque-sans@master/Webfonts/FantasqueSansMono-Regular.woff2') format('woff2'),
-         url('https://cdn.jsdelivr.net/gh/belluzj/fantasque-sans@master/Webfonts/FantasqueSansMono-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Fantasque Sans Mono';
-    src: url('https://cdn.jsdelivr.net/gh/belluzj/fantasque-sans@master/Webfonts/FantasqueSansMono-Bold.woff2') format('woff2'),
-         url('https://cdn.jsdelivr.net/gh/belluzj/fantasque-sans@master/Webfonts/FantasqueSansMono-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Fantasque Sans Mono';
-    src: url('https://cdn.jsdelivr.net/gh/belluzj/fantasque-sans@master/Webfonts/FantasqueSansMono-Italic.woff2') format('woff2'),
-         url('https://cdn.jsdelivr.net/gh/belluzj/fantasque-sans@master/Webfonts/FantasqueSansMono-Italic.woff') format('woff');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-}
 
 /* Font family definitions for consistent usage - ALL USE FANTASQUE SANS MONO */
 :root {
@@ -83,13 +55,11 @@ code, pre {
 }
 
 /* Override font-family !important for Font Awesome elements */
-.fas,
-.far,
-.fab,
-.fa-solid,
-.fa-regular,
-.fa-brands {
+.fas, .fa-solid, .fa-regular, .far {
     font-family: "Font Awesome 6 Free" !important;
+}
+.fab, .fa-brands {
+    font-family: "Font Awesome 6 Brands" !important;
 }
 
 /* Responsive font size adjustments */
