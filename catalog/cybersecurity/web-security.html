@@ -47,7 +47,7 @@
                     
                     <p>A typical XSS vulnerability might look like this:</p>
                     
-                    <pre><code>// Vulnerable code
+                    <pre><code class="language-javascript">// Vulnerable code
 const username = request.getParameter("username");
 response.write("Welcome, " + username + "!");
 
@@ -56,7 +56,7 @@ response.write("Welcome, " + username + "!");
                     
                     <p>To prevent XSS attacks, always validate and sanitize user input, and use context-appropriate output encoding:</p>
                     
-                    <pre><code>// Safer code
+                    <pre><code class="language-javascript">// Safer code
 const username = request.getParameter("username");
 const sanitizedUsername = sanitizeHTML(username);
 response.write("Welcome, " + sanitizedUsername + "!");</code></pre>
@@ -68,7 +68,7 @@ response.write("Welcome, " + sanitizedUsername + "!");</code></pre>
                     
                     <p>Here's an example of vulnerable code:</p>
                     
-                    <pre><code>// Vulnerable code
+                    <pre><code class="language-javascript">// Vulnerable code
 const userId = request.getParameter("id");
 const query = "SELECT * FROM users WHERE id = " + userId;
 const results = database.execute(query);
@@ -79,7 +79,7 @@ const results = database.execute(query);
                     
                     <p>To prevent SQL Injection, use parameterized queries or prepared statements:</p>
                     
-                    <pre><code>// Safer code
+                    <pre><code class="language-javascript">// Safer code
 const userId = request.getParameter("id");
 const query = "SELECT * FROM users WHERE id = ?";
 const statement = database.prepareStatement(query);
@@ -95,15 +95,14 @@ const results = statement.executeQuery();</code></pre>
                         To prevent CSRF attacks, implement anti-CSRF tokens in your forms and validate them on the server side:
                     </p>
                     
-                    <pre><code>// In your form
-&lt;form action="/transfer" method="post"&gt;
+                    <pre><code class="language-html">&lt;form action="/transfer" method="post"&gt;
   &lt;input type="hidden" name="csrf_token" value="random_generated_token"&gt;
   &lt;input type="text" name="amount"&gt;
   &lt;input type="text" name="to_account"&gt;
   &lt;button type="submit"&gt;Transfer&lt;/button&gt;
-&lt;/form&gt;
+&lt;/form&gt;</code></pre>
 
-// On the server
+                    <pre><code class="language-javascript">// On the server
 if (request.getParameter("csrf_token") !== session.getCSRFToken()) {
   // Invalid token, reject the request
   response.sendError(403, "Invalid CSRF token");
@@ -133,7 +132,7 @@ if (request.getParameter("csrf_token") !== session.getCSRFToken()) {
                         HTTP security headers are a powerful defense mechanism for your web applications. Here are some important ones to implement:
                     </p>
                     
-                    <pre><code>// Example security headers
+                    <pre><code class="language-http">// Example security headers
 Content-Security-Policy: default-src 'self'
 X-Content-Type-Options: nosniff
 X-Frame-Options: DENY
@@ -165,5 +164,6 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains</code></pre>
     <script src="../../js/modules/components.js"></script>
     <!-- Load main functionality -->
     <script src="../../js/main.js"></script>
-
+    <!-- Load code highlighting -->
+    <script src="../../js/modules/code-highlight.js"></script>
 </body></html>

@@ -10,7 +10,7 @@
     "check-links": "node js/check-links.js",
     "update-site": "node js/update-site-info.js"
   },
-  "author": "Your Name",
+  "author": "David Obando",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {

@@ -65,13 +65,13 @@
                         Consider a 4-digit PIN code for your phone. How many possible combinations exist?
                     </p>
 
-                    <pre><code>10 x 10 x 10 x 10 = 10,000 possible combinations</code></pre>
+                    <pre><code class="language-python">10 x 10 x 10 x 10 = 10,000 possible combinations</code></pre>
 
                     <p>
                         This might seem like a lot, but for a computer program, checking 10,000 combinations takes milliseconds:
                     </p>
 
-                    <pre><code># Python code to try all possible 4-digit PIN combinations
+                    <pre><code class="language-python"># Python code to try all possible 4-digit PIN combinations
 from string import digits
 
 for i in digits:
@@ -84,13 +84,13 @@ for i in digits:
                         What if we use 4 letters instead? With both uppercase and lowercase letters (52 possibilities for each position):
                     </p>
 
-                    <pre><code>52 x 52 x 52 x 52 = 7,311,616 possible combinations</code></pre>
+                    <pre><code class="language-python">52 x 52 x 52 x 52 = 7,311,616 possible combinations</code></pre>
 
                     <p>
                         That's much better, but still crackable in minutes by modern computers:
                     </p>
 
-                    <pre><code># Python code to try all possible 4-letter combinations
+                    <pre><code class="language-python"># Python code to try all possible 4-letter combinations
 from string import ascii_letters
  
 for i in ascii_letters:
@@ -103,7 +103,7 @@ for i in ascii_letters:
                         Adding numbers and special characters increases complexity significantly:
                     </p>
 
-                    <pre><code># Python code with letters, numbers, and special characters
+                    <pre><code class="language-python"># Python code with letters, numbers, and special characters
 from string import ascii_letters, digits, punctuation
 
 for i in ascii_letters + digits + punctuation:
@@ -149,7 +149,7 @@ for i in ascii_letters + digits + punctuation:
                         A phishing email might contain links like:
                     </p>
 
-                    <pre><code>&lt;a href="https://malicious-site.com/fake-login"&gt;https://yourbank.com/login&lt;/a&gt;</code></pre>
+                    <pre><code class="language-html">&lt;a href="https://malicious-site.com/fake-login"&gt;https://yourbank.com/login&lt;/a&gt;</code></pre>
 
                     <p>
                         Notice how the displayed text looks legitimate, but the actual link destination is malicious.
@@ -244,7 +244,7 @@ for i in ascii_letters + digits + punctuation:
                         Passkeys work through a cryptographic challenge-response system:
                     </p>
 
-                    <pre><code>// Website sends a challenge
+                    <pre><code class="language-javascript">// Website sends a challenge
 const challenge = generateRandomChallenge();
 
 // Your device signs it with your private key
@@ -294,5 +294,7 @@ const isAuthenticated = verify(challenge, signature, publicKey);</code></pre>
     <script src="../../js/modules/components.js"></script>
     <!-- Load main functionality -->
     <script src="../../js/main.js"></script>
+    <!-- Load code highlighting -->
+    <script src="../../js/modules/code-highlight.js"></script>
 
 </body></html>
