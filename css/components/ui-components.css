@@ -217,7 +217,8 @@
     border-radius: var(--radius-xl);
     font-size: var(--text-sm);
     border: 1px solid var(--bg-accent);
-    transition: background-color var(--transition-normal), transform var(--transition-fast);
+    transition: all var(--transition-normal);
+    cursor: pointer;
 }
 
 .tag:hover {
@@ -234,35 +235,35 @@
 
 /* Tag variants */
 .tag-primary {
-    background-color: rgba(var(--aqua-rgb), 0.2);
-    color: var(--aqua);
-    border-color: var(--aqua);
+    background-color: var(--bg-accent);
+    color: var(--fg-light);
+    border-color: var(--bg-accent);
 }
 
 .tag-primary.active {
-    background-color: var(--aqua);
+    background-color: var(--primary-color);
     color: var(--bg-light);
     transform: translateY(-2px);
     box-shadow: var(--shadow-sm);
 }
 
 .tag-secondary {
-    background-color: rgba(var(--green-rgb), 0.2);
-    color: var(--green);
-    border-color: var(--green);
+    background-color: var(--bg-highlight);
+    color: var(--fg-light);
+    border-color: var(--bg-accent);
 }
 
 .tag-secondary.active {
-    background-color: var(--green);
-    color: var(--bg-light);
+    background-color: var(--bg-accent);
+    color: var(--fg-light);
     transform: translateY(-2px);
     box-shadow: var(--shadow-sm);
 }
 
 .tag-accent {
-    background-color: rgba(var(--blue-rgb), 0.2);
-    color: var(--blue);
-    border-color: var(--blue);
+    background-color: var(--bg-highlight);
+    color: var(--fg-light);
+    border-color: var(--bg-accent);
 }
 
 /* ===== NAVIGATION ELEMENTS ===== */
