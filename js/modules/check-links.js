@@ -8,7 +8,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { JSDOM } = require('jsdom');
+const SimpleHTMLParser = require('./html-parser');
 
 // Configuration
 const config = {
@@ -37,18 +37,11 @@ function getAllFiles(dirPath, arrayOfFiles = []) {
 
 function parseHtmlLinks(filePath) {
   const content = fs.readFileSync(filePath, 'utf8');
-  const dom = new JSDOM(content);
-  const document = dom.window.document;
-  
-  const links = Array.from(document.querySelectorAll('a'))
-    .map(a => ({ 
-      href: a.getAttribute('href'),
-      text: a.textContent.trim(),
-      element: a
-    }))
+  const parser = new SimpleHTMLParser(content);
+  const links = parser.getLinks()
     .filter(link => link.href && !link.href.startsWith('http') && !link.href.startsWith('#') && !link.href.startsWith('mailto:'));
   
-  return { dom, document, links, content };
+  return { parser, links, content };
 }
 
 // Find all blog posts sorted by date
@@ -65,22 +58,15 @@ function getBlogPosts() {
     if (path.extname(file) === '.html' && file !== 'template.html') {
       const filePath = path.join(blogDir, file);
       const content = fs.readFileSync(filePath, 'utf8');
-      const dom = new JSDOM(content);
-      const document = dom.window.document;
+      const parser = new SimpleHTMLParser(content);
       
       // Extract date from meta tag or time element
-      let date = null;
-      const timeElement = document.querySelector('time');
-      if (timeElement && timeElement.getAttribute('datetime')) {
-        date = new Date(timeElement.getAttribute('datetime'));
-      }
+      const timeElement = parser.getElement('time');
+      const date = parser.extractDate(timeElement);
       
       // Extract title
-      let title = '';
-      const titleElement = document.querySelector('.blog-header h1');
-      if (titleElement) {
-        title = titleElement.textContent.trim();
-      }
+      const titleElement = parser.getElement('.blog-header h1');
+      const title = titleElement ? parser.getTextContent(titleElement) : file.replace('.html', '');
       
       posts.push({
         file,
@@ -118,68 +104,44 @@ function updateBlogNavigation() {
     
     console.log(`Processing: ${post.title}`);
     
-    const { dom, document } = parseHtmlLinks(post.path);
+    const { parser } = parseHtmlLinks(post.path);
     
     // Update previous post link
-    const prevLink = document.querySelector('.blog-nav .previous-post');
+    const prevLink = parser.getElement('.blog-nav .previous-post');
     if (prevLink) {
       if (prevPost) {
-        prevLink.setAttribute('href', `${prevPost.file}`);
-        
-        // Find the text node or create one
-        const iconElement = prevLink.querySelector('i');
+        const newPrevLink = prevLink.replace(/href=["'][^"']*["']/, `href="${prevPost.file}"`);
+        const iconElement = newPrevLink.match(/<i[^>]*>.*?<\/i>/);
         if (iconElement) {
-          // Remove all text nodes
-          Array.from(prevLink.childNodes).forEach(node => {
-            if (node.nodeType === 3) { // Text node
-              prevLink.removeChild(node);
-            }
-          });
-          
-          // Add new text node after icon
-          const textNode = document.createTextNode(` ${prevPost.title}`);
-          prevLink.appendChild(textNode);
+          const newContent = newPrevLink.replace(iconElement[0], `${iconElement[0]} ${prevPost.title}`);
+          parser.replaceContent(prevLink, newContent);
         } else {
-          prevLink.textContent = `← ${prevPost.title}`;
+          parser.replaceContent(prevLink, `<a href="${prevPost.file}" class="previous-post">← ${prevPost.title}</a>`);
         }
       } else {
-        // No previous post
-        prevLink.setAttribute('href', '#');
-        prevLink.textContent = 'Previous Post';
+        parser.replaceContent(prevLink, '<a href="#" class="previous-post">Previous Post</a>');
       }
     }
     
     // Update next post link
-    const nextLink = document.querySelector('.blog-nav .next-post');
+    const nextLink = parser.getElement('.blog-nav .next-post');
     if (nextLink) {
       if (nextPost) {
-        nextLink.setAttribute('href', `${nextPost.file}`);
-        
-        // Find or create text node
-        const iconElement = nextLink.querySelector('i');
+        const newNextLink = nextLink.replace(/href=["'][^"']*["']/, `href="${nextPost.file}"`);
+        const iconElement = newNextLink.match(/<i[^>]*>.*?<\/i>/);
         if (iconElement) {
-          // Remove all text nodes
-          Array.from(nextLink.childNodes).forEach(node => {
-            if (node.nodeType === 3) { // Text node
-              nextLink.removeChild(node);
-            }
-          });
-          
-          // Add new text node before icon
-          const textNode = document.createTextNode(`${nextPost.title} `);
-          nextLink.insertBefore(textNode, iconElement);
+          const newContent = newNextLink.replace(iconElement[0], `${nextPost.title} ${iconElement[0]}`);
+          parser.replaceContent(nextLink, newContent);
         } else {
-          nextLink.textContent = `${nextPost.title} →`;
+          parser.replaceContent(nextLink, `<a href="${nextPost.file}" class="next-post">${nextPost.title} →</a>`);
         }
       } else {
-        // No next post
-        nextLink.setAttribute('href', '#');
-        nextLink.textContent = 'Next Post';
+        parser.replaceContent(nextLink, '<a href="#" class="next-post">Next Post</a>');
       }
     }
     
     if (!config.dryRun) {
-      fs.writeFileSync(post.path, dom.serialize());
+      fs.writeFileSync(post.path, parser.getHTML());
       console.log(`Updated ${post.file}`);
     } else {
       console.log(`Would update ${post.file} (dry run)`);
@@ -200,31 +162,38 @@ function checkAllLinks() {
     const { links } = parseHtmlLinks(file);
     
     links.forEach(link => {
-      const targetPath = path.resolve(path.dirname(file), link.href);
-      
+      const targetPath = path.join(path.dirname(file), link.href);
       if (!fs.existsSync(targetPath)) {
-        console.error(`[${file}] Broken link: ${link.href} (${link.text})`);
+        console.error(`Broken link in ${file}: ${link.href} (${link.text})`);
         brokenLinks++;
       }
     });
   });
   
   if (brokenLinks === 0) {
-    console.log('No broken links found!');
+    console.log('All links are valid!');
   } else {
-    console.log(`Found ${brokenLinks} broken links.`);
+    console.error(`Found ${brokenLinks} broken links.`);
   }
 }
 
 // Main function
 function main() {
-  console.log('Link checker and fixer starting...');
-  console.log(`Mode: ${config.dryRun ? 'Dry run (no changes)' : 'Live (making changes)'}`);
+  const args = process.argv.slice(2);
+  const command = args[0] || 'check';
   
-  updateBlogNavigation();
-  checkAllLinks();
-  
-  console.log('Done!');
+  switch (command) {
+    case 'check':
+      checkAllLinks();
+      break;
+    case 'update':
+      updateBlogNavigation();
+      break;
+    default:
+      console.error(`Unknown command: ${command}`);
+      console.log('Available commands: check, update');
+      process.exit(1);
+  }
 }
 
 main(); 

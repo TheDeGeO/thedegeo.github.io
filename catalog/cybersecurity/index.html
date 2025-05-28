@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cybersecurity Library - David Obando</title>
@@ -6,7 +8,7 @@
     <link rel="stylesheet" href="../../css/main-unified.css">
     <link rel="stylesheet" href="../../css/fonts.css">
 </head>
-<body class="content-cybersecurity">
+<body class="content-cybersecurity cybersecurity-library">
     <!-- Components will be automatically loaded here -->
     <div id="site-header"></div>
     <div id="site-navigation"></div>
@@ -33,17 +35,17 @@
                             <p>This library contains articles on various cybersecurity topics, from personal account security to web application vulnerabilities and defensive coding practices. Whether you're looking to improve your personal online safety or enhance your technical security knowledge, you'll find valuable resources here.</p>
                         </div>
                         
+                        <div class="filter-categories tags-container">
+                            <span class="tag tag-primary category-tag" data-category="all">All Topics</span>
+                            <span class="tag tag-secondary category-tag" data-category="personal">Personal Security</span>
+                            <span class="tag tag-secondary category-tag" data-category="web">Web Security</span>
+                            <span class="tag tag-secondary category-tag" data-category="network">Network Security</span>
+                            <span class="tag tag-secondary category-tag" data-category="cryptography">Cryptography</span>
+                        </div>
+                        
                         <div class="search-container">
                             <i class="fas fa-search search-icon"></i>
                             <input type="text" id="articleSearch" class="search-input" placeholder="Search articles by title or topic...">
-                        </div>
-                        
-                        <div class="filter-categories">
-                            <span class="category-tag" data-category="all">All Topics</span>
-                            <span class="category-tag" data-category="personal">Personal Security</span>
-                            <span class="category-tag" data-category="web">Web Security</span>
-                            <span class="category-tag" data-category="network">Network Security</span>
-                            <span class="category-tag" data-category="cryptography">Cryptography</span>
                         </div>
                         
                         <div id="articlesList">
@@ -92,9 +94,7 @@
     <script src="../../js/modules/components.js"></script>
     <!-- Load main functionality -->
     <script src="../../js/main.js"></script>
-    <!-- Load cybersecurity library functionality -->
-    <script src="../../js/modules/cybersecurity-library.js"></script>
-    <!-- Load code highlighting -->
-    <script src="../../js/modules/code-highlight.js"></script>
-
-</body></html>
+    <!-- Load unified library functionality -->
+    <script src="../../js/modules/library.js"></script>
+</body>
+</html>

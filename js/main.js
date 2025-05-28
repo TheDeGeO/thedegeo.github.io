@@ -1,12 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize code highlighting
+    document.querySelectorAll('pre code').forEach((block) => {
+        // Add loading state
+        block.parentElement.classList.add('loading');
+        
+        // Detect language
+        const language = block.className.replace('language-', '');
+        block.parentElement.setAttribute('data-language', language);
+        
+        // Add copy button
+        addCopyButton(block.parentElement);
+        
+        // Remove loading state
+        block.parentElement.classList.remove('loading');
+    });
+    
     // Smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll('nav a');
+    const navLinks = document.querySelectorAll('nav a, .nav-link');
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
             
-            if (targetId.startsWith('#')) {
+            if (targetId && targetId.startsWith('#')) {
                 e.preventDefault();
                 
                 const targetElement = document.querySelector(targetId);
@@ -62,12 +78,38 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
     
-    // Observe all content cards
-    const contentCards = document.querySelectorAll('.content-card');
-    contentCards.forEach(card => {
+    // Observe all content cards and article cards
+    const cards = document.querySelectorAll('.content-card, .article-card, .catalog-card');
+    cards.forEach(card => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(20px)';
         card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
         observer.observe(card);
     });
-}); 
+});
+
+// Add copy button to code blocks
+function addCopyButton(preElement) {
+    const button = document.createElement('button');
+    button.className = 'copy-button';
+    button.textContent = 'Copy';
+    
+    button.addEventListener('click', async () => {
+        const code = preElement.querySelector('code').textContent;
+        
+        try {
+            await navigator.clipboard.writeText(code);
+            button.textContent = 'Copied!';
+            setTimeout(() => {
+                button.textContent = 'Copy';
+            }, 2000);
+        } catch (err) {
+            button.textContent = 'Failed to copy';
+            setTimeout(() => {
+                button.textContent = 'Copy';
+            }, 2000);
+        }
+    });
+    
+    preElement.appendChild(button);
+} 

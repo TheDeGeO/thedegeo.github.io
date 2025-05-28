@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Theory Library - David Obando</title>
@@ -6,7 +8,7 @@
     <link rel="stylesheet" href="../../css/main-unified.css">
     <link rel="stylesheet" href="../../css/fonts.css">
 </head>
-<body class="content-music">
+<body class="content-music music-theory-library">
     <!-- Components will be automatically loaded here -->
     <div id="site-header"></div>
     <div id="site-navigation"></div>
@@ -31,6 +33,14 @@
                     <div class="article-content">
                         <div class="section-description">
                             <p>This library contains articles exploring various aspects of music theory, from the fundamentals of harmony and rhythm to advanced compositional techniques. Whether you're a beginner looking to understand basic concepts or an experienced musician seeking deeper insights, you'll find valuable resources here.</p>
+                        </div>
+                        
+                        <div class="filter-categories tags-container">
+                            <span class="tag tag-primary category-tag" data-category="all">All Topics</span>
+                            <span class="tag tag-secondary category-tag" data-category="harmony">Harmony</span>
+                            <span class="tag tag-secondary category-tag" data-category="rhythm">Rhythm</span>
+                            <span class="tag tag-secondary category-tag" data-category="composition">Composition</span>
+                            <span class="tag tag-secondary category-tag" data-category="analysis">Analysis</span>
                         </div>
                         
                         <div class="search-container">
@@ -70,7 +80,7 @@
     <script src="../../js/modules/components.js"></script>
     <!-- Load main functionality -->
     <script src="../../js/main.js"></script>
-    <!-- Load music theory library functionality -->
-    <script src="../../js/modules/music-theory-library.js"></script>
-
-</body></html>
+    <!-- Load unified library functionality -->
+    <script src="../../js/modules/library.js"></script>
+</body>
+</html>

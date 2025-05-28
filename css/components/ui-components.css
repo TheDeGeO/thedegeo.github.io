@@ -239,10 +239,24 @@
     border-color: var(--aqua);
 }
 
+.tag-primary.active {
+    background-color: var(--aqua);
+    color: var(--bg-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
 .tag-secondary {
     background-color: rgba(var(--green-rgb), 0.2);
     color: var(--green);
     border-color: var(--green);
+}
+
+.tag-secondary.active {
+    background-color: var(--green);
+    color: var(--bg-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
 }
 
 .tag-accent {

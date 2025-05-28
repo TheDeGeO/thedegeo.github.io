@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARTICLE_TITLE - David Obando</title>
+    
+    <link rel="stylesheet" href="../../css/main-unified.css">
+    <link rel="stylesheet" href="../../css/fonts.css">
+</head>
+<body>
+    <!-- Components will be automatically loaded here -->
+    <div id="site-header"></div>
+    <div id="site-navigation"></div>
+    
+    <main>
+        <section>
+            <div class="container">
+                <article class="article-container">
+                    <header class="article-header">
+                        <h1 class="article-title">ARTICLE_TITLE</h1>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar-alt"></i> <time datetime="YYYY-MM-DD">Month DD, YYYY</time></span>
+                            <span><i class="far fa-clock"></i> X min read</span>
+                        </div>
+                    </header>
+                    
+                    <div class="article-content">
+                        <!-- Article content goes here -->
+                        <p>
+                            This is the introduction paragraph of your article. It should provide a brief overview
+                            of what the article covers and why it's important.
+                        </p>
+                        
+                        <h2>First Section</h2>
+                        <p>
+                            Start your first section here. Use proper heading hierarchy (h2 for sections, h3 for subsections)
+                            to maintain good document structure.
+                        </p>
+                        
+                        <h3>Subsection</h3>
+                        <p>
+                            Add subsections as needed to break down complex topics into manageable chunks.
+                        </p>
+                        
+                        <h2>Second Section</h2>
+                        <p>
+                            Continue with your article content, using appropriate headings and paragraphs
+                            to organize your thoughts and make the content easy to follow.
+                        </p>
+                        
+                        <!-- Code blocks can be added like this -->
+                        <pre><code class="language-javascript">
+// Example code block
+function example() {
+    console.log("Hello, world!");
+}
+                        </code></pre>
+                        
+                        <h2>Conclusion</h2>
+                        <p>
+                            Wrap up your article with a conclusion that summarizes the key points
+                            and provides any final thoughts or next steps for the reader.
+                        </p>
+                        
+                        <!-- Tags will be automatically populated by update-site-info.js -->
+                        <div class="article-tags">
+                            <span class="tag">tag1</span>
+                            <span class="tag">tag2</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation footer will be automatically populated by update-site-info.js -->
+                    <footer class="article-footer">
+                        <div class="nav-links">
+                            <a href="index.html" class="nav-link"><i class="fas fa-arrow-left"></i> Back to CATEGORY_NAME Library</a>
+                            <div class="prev-next-links">
+                                <!-- Previous/Next links will be added here -->
+                            </div>
+                        </div>
+                    </footer>
+                </article>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer will be automatically loaded here -->
+    <div id="site-footer"></div>
+    
+    <!-- Load component system first -->
+    <script src="../../js/modules/components.js"></script>
+    <!-- Load main functionality -->
+    <script src="../../js/main.js"></script>
+    <!-- Load category-specific functionality -->
+    <script src="../../js/modules/CATEGORY_ID-library.js"></script>
+</body>
+</html> 
