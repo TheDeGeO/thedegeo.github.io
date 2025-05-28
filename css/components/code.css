@@ -1,5 +1,8 @@
 /* Code highlighting and code block styles */
 
+/* Import highlight.js base styles */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css');
+
 /* Base code block styling */
 pre {
     background: var(--bg-color) !important;
@@ -31,7 +34,7 @@ code {
     display: block;
 }
 
-/* Highlight.js theme customization */
+/* Override highlight.js theme with our custom colors */
 .hljs {
     background: transparent !important;
     color: var(--fg-light);
@@ -39,13 +42,65 @@ code {
 }
 
 /* Customize specific token colors */
-.hljs-keyword { color: var(--red); }
-.hljs-string { color: var(--green); }
-.hljs-number { color: var(--purple); }
-.hljs-function { color: var(--aqua); }
-.hljs-title { color: var(--yellow); }
-.hljs-attr { color: var(--blue); }
-.hljs-comment { color: var(--fg-muted); font-style: italic; }
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+    color: var(--red);
+}
+
+.hljs-string,
+.hljs-doctag,
+.hljs-template-variable,
+.hljs-variable {
+    color: var(--green);
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-params,
+.hljs-constant {
+    color: var(--purple);
+}
+
+.hljs-function,
+.hljs-name,
+.hljs-attr {
+    color: var(--aqua);
+}
+
+.hljs-title,
+.hljs-class .hljs-title,
+.hljs-type {
+    color: var(--yellow);
+}
+
+.hljs-tag,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+    color: var(--blue);
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion {
+    color: var(--fg-muted);
+    font-style: italic;
+}
+
+.hljs-meta,
+.hljs-meta .hljs-keyword {
+    color: var(--fg-muted);
+}
+
+.hljs-emphasis {
+    font-style: italic;
+}
+
+.hljs-strong {
+    font-weight: bold;
+}
 
 /* Inline code styling */
 :not(pre) > code {
