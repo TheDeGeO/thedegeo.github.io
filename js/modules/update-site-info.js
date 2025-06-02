@@ -84,16 +84,42 @@ function getCategoryArticles(categoryPath) {
       // Extract title
       const titleElement = document.querySelector('.article-title');
       const title = titleElement ? titleElement.textContent.trim() : file.replace('.html', '');
-      // Extract date
+      // Extract date robustly
       let date = null;
-      const dateElement = document.querySelector('.article-meta [class*="date"], .article-meta time, .article-meta span i.fa-calendar-alt, .article-meta-item i.fa-calendar-alt');
-      if (dateElement) {
-        if (dateElement.getAttribute('datetime')) {
-          date = new Date(dateElement.getAttribute('datetime'));
+      const timeElement = document.querySelector('.article-meta time');
+      function isValidDate(d) {
+        return d instanceof Date && !isNaN(d.getTime());
+      }
+      if (timeElement) {
+        let dateString = timeElement.dateTime || timeElement.getAttribute('datetime');
+        if (dateString && isValidDate(new Date(dateString))) {
+          date = new Date(dateString);
         } else {
+          // Fallback: try to parse text content
+          const text = timeElement.textContent;
+          const dateMatch = text.match(/\d{4}-\d{2}-\d{2}|\d{2}\/\d{2}\/\d{4}/);
+          if (dateMatch && isValidDate(new Date(dateMatch[0]))) {
+            date = new Date(dateMatch[0]);
+          }
+        }
+      } else {
+        // Fallback: old logic for legacy articles
+        const dateElement = document.querySelector('.article-meta [class*="date"], .article-meta span i.fa-calendar-alt, .article-meta-item i.fa-calendar-alt');
+        if (dateElement) {
           const text = dateElement.textContent;
           const dateMatch = text.match(/\d{4}-\d{2}-\d{2}|\d{2}\/\d{2}\/\d{4}/);
-          if (dateMatch) date = new Date(dateMatch[0]);
+          if (dateMatch && isValidDate(new Date(dateMatch[0]))) {
+            date = new Date(dateMatch[0]);
+          }
+        }
+      }
+      // Extract reading time
+      let readingTime = 5; // Default value
+      const readingTimeElement = document.querySelector('.article-meta-item i.fa-clock')?.parentElement?.querySelector('span');
+      if (readingTimeElement) {
+        const match = readingTimeElement.textContent.match(/(\d+)\s*min read/);
+        if (match) {
+          readingTime = parseInt(match[1], 10);
         }
       }
       // Extract tags
@@ -120,10 +146,11 @@ function getCategoryArticles(categoryPath) {
         file: file,
         path: filePath,
         title: title,
-        date: date || new Date(0),
+        date: date,
         tags: tags,
         url: file,
-        description: description
+        description: description,
+        readingTime: readingTime
       };
     });
   files.sort((a, b) => b.date - a.date);
@@ -230,8 +257,8 @@ function updateCategoryIndexPages(articles) {
         <div class="article-card" data-tags="${article.tags.join(' ')}">
           <h3><a href="${article.url}">${article.title}</a></h3>
           <div class="article-meta">
-            <span><i class="far fa-calendar-alt"></i> ${article.date.toLocaleDateString()}</span>
-            <span><i class="far fa-clock"></i> ${Math.ceil(Math.random() * 20)} min read</span>
+            <span><i class="far fa-calendar-alt"></i> ${article.date ? article.date.toLocaleDateString() : ''}</span>
+            <span><i class="far fa-clock"></i> ${article.readingTime} min read</span>
           </div>
           <p>${article.description || ''}</p>
           <div class="article-tags">
