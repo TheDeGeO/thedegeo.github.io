@@ -171,7 +171,7 @@ function updateArticleNavigation(articles) {
         if (divFooter) {
           // Replace div with proper footer
           parser.replaceContent(divFooter, divFooter.replace('div', 'footer'));
-        } else {
+            } else {
           // Create new footer
           const newFooter = `
             <footer class="article-footer">
@@ -211,7 +211,7 @@ function updateArticleNavigation(articles) {
       if (!config.dryRun) {
         fs.writeFileSync(article.path, parser.getHTML());
         console.log(`Updated ${article.file}`);
-      } else {
+        } else {
         console.log(`Would update ${article.file} (dry run)`);
       }
     }
@@ -294,7 +294,7 @@ function updateMainCatalogPage(articles) {
         </div>
       `;
     }).join('');
-    
+  
     parser.replaceContent(catalogGrid, `<div class="catalog-grid">${cardsHtml}</div>`);
   }
   

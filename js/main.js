@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
         card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
         observer.observe(card);
     });
-});
+}); 
 
 // Add copy button to code blocks
 function addCopyButton(preElement) {

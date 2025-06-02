@@ -25,6 +25,7 @@
     background: linear-gradient(to bottom, var(--bg-lighter), var(--bg-light));
     border-top: 3px solid var(--bg-lighter);
     border-radius: var(--radius-lg);
+    text-align: center;
 }
 
 /* ===== SECTION ACCENTS ===== */
@@ -54,6 +55,20 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: var(--space-lg);
+    text-align: left;
+}
+
+/* Icon styles for content cards */
+.content-card h3 i {
+    margin-right: var(--space-sm);
+    color: inherit;
+    font-size: 1.1em;
+    vertical-align: middle;
+}
+
+.content-card:hover h3 i {
+    transform: scale(1.1);
+    transition: transform var(--transition-normal);
 }
 
 /* Wider grid for full-width sections */
@@ -105,6 +120,7 @@
     align-items: center;
     flex-wrap: wrap;
     gap: var(--space-lg);
+    text-align: left;
 }
 
 .about-image {

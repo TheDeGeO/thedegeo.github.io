@@ -187,7 +187,7 @@ function main() {
       checkAllLinks();
       break;
     case 'update':
-      updateBlogNavigation();
+  updateBlogNavigation();
       break;
     default:
       console.error(`Unknown command: ${command}`);
