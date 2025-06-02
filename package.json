@@ -12,5 +12,8 @@
   },
   "author": "David Obando",
   "license": "UNLICENSED",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "jsdom": "^26.1.0"
+  }
 }

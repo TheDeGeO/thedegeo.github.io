@@ -10,7 +10,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const SimpleHTMLParser = require('./html-parser');
+const { JSDOM } = require('jsdom');
 
 // Import site configuration
 const siteConfig = require('./site-config');
@@ -58,46 +58,75 @@ function getAllHtmlFiles(dirPath, arrayOfFiles = []) {
   return arrayOfFiles;
 }
 
+// Helper: Load HTML file and return DOM/document
+function loadDom(filePath) {
+  const html = fs.readFileSync(filePath, 'utf8');
+  return new JSDOM(html);
+}
+
+// Helper: Save DOM/document to file
+function saveDom(dom, filePath) {
+  fs.writeFileSync(filePath, dom.serialize());
+}
+
 // Get articles for a specific category
 function getCategoryArticles(categoryPath) {
   if (!fs.existsSync(categoryPath)) {
     return [];
   }
-
   const files = fs.readdirSync(categoryPath)
     .filter(file => path.extname(file) === '.html' && file !== 'index.html')
     .map(file => {
       const filePath = path.join(categoryPath, file);
-      const content = fs.readFileSync(filePath, 'utf8');
-      const parser = new SimpleHTMLParser(content);
-      
-      // Extract title, date, and tags
-      const titleElement = parser.getElement('.article-title');
-      const dateElement = parser.getElement('.article-meta [class*="date"], .article-meta time, .article-meta span i.fa-calendar-alt, .article-meta-item i.fa-calendar-alt');
-      const tagsElements = parser.getElements('.article-tags .tag');
-      
+      const html = fs.readFileSync(filePath, 'utf8');
+      const dom = new JSDOM(html);
+      const document = dom.window.document;
       // Extract title
-      const title = titleElement ? parser.getTextContent(titleElement) : file.replace('.html', '');
-      
+      const titleElement = document.querySelector('.article-title');
+      const title = titleElement ? titleElement.textContent.trim() : file.replace('.html', '');
       // Extract date
-      const date = parser.extractDate(dateElement);
-      
+      let date = null;
+      const dateElement = document.querySelector('.article-meta [class*="date"], .article-meta time, .article-meta span i.fa-calendar-alt, .article-meta-item i.fa-calendar-alt');
+      if (dateElement) {
+        if (dateElement.getAttribute('datetime')) {
+          date = new Date(dateElement.getAttribute('datetime'));
+        } else {
+          const text = dateElement.textContent;
+          const dateMatch = text.match(/\d{4}-\d{2}-\d{2}|\d{2}\/\d{2}\/\d{4}/);
+          if (dateMatch) date = new Date(dateMatch[0]);
+        }
+      }
       // Extract tags
-      const tags = tagsElements.map(tag => parser.getTextContent(tag));
-      
+      const tagsElements = document.querySelectorAll('.article-tags .tag');
+      const tags = Array.from(tagsElements).map(tag => tag.textContent.trim());
+      // Extract description
+      let description = '';
+      const descElement = document.querySelector('.article-description');
+      if (descElement) {
+        description = descElement.textContent.trim();
+      } else {
+        // Fallback: .article-summary, meta, or first <p> in .article-content
+        const summaryElement = document.querySelector('.article-summary, meta[name="description"]');
+        if (summaryElement) {
+          description = summaryElement.textContent || summaryElement.getAttribute('content') || '';
+        } else {
+          const firstP = document.querySelector('.article-content p');
+          if (firstP) {
+            description = firstP.textContent.trim();
+          }
+        }
+      }
       return {
         file: file,
         path: filePath,
         title: title,
-        date: date,
+        date: date || new Date(0),
         tags: tags,
-        url: file
+        url: file,
+        description: description
       };
     });
-  
-  // Sort by date, newest first
   files.sort((a, b) => b.date - a.date);
-  
   return files;
 }
 
@@ -124,94 +153,53 @@ function getAllArticles() {
 
 // Update article navigation (prev/next)
 function updateArticleNavigation(articles) {
-  // Group articles by category
   const articlesByCategory = {};
-  
   articles.forEach(article => {
-    if (!articlesByCategory[article.category]) {
-      articlesByCategory[article.category] = [];
-    }
+    if (!articlesByCategory[article.category]) articlesByCategory[article.category] = [];
     articlesByCategory[article.category].push(article);
   });
-  
-  // For each category, update the navigation
   Object.keys(articlesByCategory).forEach(categoryId => {
     const categoryArticles = articlesByCategory[categoryId];
-    
     for (let i = 0; i < categoryArticles.length; i++) {
       const article = categoryArticles[i];
-      const content = fs.readFileSync(article.path, 'utf8');
-      const parser = new SimpleHTMLParser(content);
-      
-      // Determine previous and next articles
+      const dom = loadDom(article.path);
+      const document = dom.window.document;
+      // Remove all but the first .article-footer
+      const footers = document.querySelectorAll('.article-footer');
+      if (footers.length > 1) {
+        for (let j = 1; j < footers.length; j++) footers[j].remove();
+      }
+      // Find or create footer
+      let footer = document.querySelector('footer.article-footer');
+      if (!footer) {
+        // Remove any div.article-footer
+        const divFooter = document.querySelector('div.article-footer');
+        if (divFooter) divFooter.remove();
+        footer = document.createElement('footer');
+        footer.className = 'article-footer';
+        document.body.appendChild(footer);
+      }
+      // Update footer content
       const prevArticle = i < categoryArticles.length - 1 ? categoryArticles[i + 1] : null;
       const nextArticle = i > 0 ? categoryArticles[i - 1] : null;
-      
-      // First, clean up any existing duplicate article footers
-      const allFooters = parser.getElements('.article-footer');
-      
-      // If more than one footer exists, remove all but the first proper <footer> element
-      if (allFooters.length > 1) {
-        console.log(`  Found ${allFooters.length} article footers in ${article.file}, cleaning up...`);
-        
-        // Keep only the first footer
-        allFooters.slice(1).forEach(footer => {
-          parser.replaceContent(footer, '');
-        });
+      footer.innerHTML = `
+        <div class="nav-links">
+          <a href="index.html" class="nav-link"><i class="fas fa-arrow-left"></i> Back to ${article.categoryName} Library</a>
+          <div class="prev-next-links">
+            ${prevArticle ? `<a href="${prevArticle.url}" class="prev-link"><i class="fas fa-chevron-left"></i> Previous: ${prevArticle.title}</a>` : ''}
+            ${nextArticle ? `<a href="${nextArticle.url}" class="next-link">Next: ${nextArticle.title} <i class="fas fa-chevron-right"></i></a>` : ''}
+          </div>
+        </div>
+      `;
+      // Place footer after .article-content if possible
+      const articleContent = document.querySelector('.article-content');
+      if (articleContent && articleContent.nextSibling !== footer) {
+        articleContent.parentNode.insertBefore(footer, articleContent.nextSibling);
       }
-      
-      // Now find or create the article footer
-      let articleFooter = parser.getElement('footer.article-footer');
-      
-      // If no proper <footer> exists, create one
-      if (!articleFooter) {
-        // Try to find any remaining div with article-footer class
-        const divFooter = parser.getElement('div.article-footer');
-        
-        if (divFooter) {
-          // Replace div with proper footer
-          parser.replaceContent(divFooter, divFooter.replace('div', 'footer'));
-            } else {
-          // Create new footer
-          const newFooter = `
-            <footer class="article-footer">
-              <div class="nav-links">
-                <a href="index.html" class="nav-link"><i class="fas fa-arrow-left"></i> Back to ${article.categoryName} Library</a>
-                <div class="prev-next-links">
-                  ${prevArticle ? `<a href="${prevArticle.url}" class="prev-link"><i class="fas fa-chevron-left"></i> Previous: ${prevArticle.title}</a>` : ''}
-                  ${nextArticle ? `<a href="${nextArticle.url}" class="next-link">Next: ${nextArticle.title} <i class="fas fa-chevron-right"></i></a>` : ''}
-                </div>
-              </div>
-            </footer>
-          `;
-          
-          // Add footer to the end of the article content
-          const articleContent = parser.getElement('.article-content');
-          if (articleContent) {
-            parser.replaceContent(articleContent, articleContent + newFooter);
-          }
-        }
-      } else {
-        // Update existing footer
-        const navLinks = parser.getElement('.nav-links');
-        if (navLinks) {
-          const newNavLinks = `
-            <div class="nav-links">
-              <a href="index.html" class="nav-link"><i class="fas fa-arrow-left"></i> Back to ${article.categoryName} Library</a>
-              <div class="prev-next-links">
-                ${prevArticle ? `<a href="${prevArticle.url}" class="prev-link"><i class="fas fa-chevron-left"></i> Previous: ${prevArticle.title}</a>` : ''}
-                ${nextArticle ? `<a href="${nextArticle.url}" class="next-link">Next: ${nextArticle.title} <i class="fas fa-chevron-right"></i></a>` : ''}
-              </div>
-            </div>
-          `;
-          parser.replaceContent(navLinks, newNavLinks);
-        }
-      }
-      
       if (!config.dryRun) {
-        fs.writeFileSync(article.path, parser.getHTML());
+        saveDom(dom, article.path);
         console.log(`Updated ${article.file}`);
-        } else {
+      } else {
         console.log(`Would update ${article.file} (dry run)`);
       }
     }
@@ -226,21 +214,17 @@ function updateCategoryIndexPages(articles) {
       console.log(`Skipping ${indexPath} - file does not exist`);
       return;
     }
-    
-    const content = fs.readFileSync(indexPath, 'utf8');
-    const parser = new SimpleHTMLParser(content);
-    
+    const dom = loadDom(indexPath);
+    const document = dom.window.document;
     // Get articles for this category
     const categoryArticles = articles.filter(a => a.category === category.id);
-    
     // Update article count
-    const countElement = parser.getElement('.article-meta span');
+    const countElement = document.querySelector('.article-meta span');
     if (countElement) {
-      parser.replaceContent(countElement, `<span>${categoryArticles.length} articles on ${category.name.toLowerCase()} topics</span>`);
+      countElement.innerHTML = `${categoryArticles.length} articles on ${category.name.toLowerCase()} topics`;
     }
-    
     // Update article list
-    const articlesList = parser.getElement('#articlesList');
+    const articlesList = document.querySelector('#articlesList');
     if (articlesList) {
       const articlesHtml = categoryArticles.map(article => `
         <div class="article-card" data-tags="${article.tags.join(' ')}">
@@ -255,12 +239,10 @@ function updateCategoryIndexPages(articles) {
           </div>
         </div>
       `).join('');
-      
-      parser.replaceContent(articlesList, `<div id="articlesList">${articlesHtml}</div>`);
+      articlesList.innerHTML = articlesHtml;
     }
-    
     if (!config.dryRun) {
-      fs.writeFileSync(indexPath, parser.getHTML());
+      saveDom(dom, indexPath);
       console.log(`Updated ${indexPath}`);
     } else {
       console.log(`Would update ${indexPath} (dry run)`);
@@ -275,31 +257,29 @@ function updateMainCatalogPage(articles) {
     console.log(`Skipping ${indexPath} - file does not exist`);
     return;
   }
-  
-  const content = fs.readFileSync(indexPath, 'utf8');
-  const parser = new SimpleHTMLParser(content);
-  
+  const dom = loadDom(indexPath);
+  const document = dom.window.document;
   // Update category cards
-  const catalogGrid = parser.getElement('.catalog-grid');
+  const catalogGrid = document.querySelector('.catalog-grid');
   if (catalogGrid) {
     const cardsHtml = libraryConfig.categories.map(category => {
       const categoryArticles = articles.filter(a => a.category === category.id);
+      // Compute relative path from catalog/index.html to category index
+      const categoryDir = category.path.replace(/^catalog\//, '');
       return `
         <div class="catalog-card">
           <i class="fas fa-${category.id === 'cybersecurity' ? 'shield-alt' : 'music'} icon"></i>
           <h3>${category.name}</h3>
           <p>${category.description || `Explore articles on ${category.name.toLowerCase()} topics.`}</p>
           <p><strong>Articles:</strong> ${categoryArticles.length}</p>
-          <a href="${category.path}/index.html" class="btn btn-primary">Browse Library <i class="fas fa-arrow-right"></i></a>
+          <a href="${categoryDir}/index.html" class="btn btn-primary">Browse Library <i class="fas fa-arrow-right"></i></a>
         </div>
       `;
     }).join('');
-  
-    parser.replaceContent(catalogGrid, `<div class="catalog-grid">${cardsHtml}</div>`);
+    catalogGrid.innerHTML = cardsHtml;
   }
-  
   if (!config.dryRun) {
-    fs.writeFileSync(indexPath, parser.getHTML());
+    saveDom(dom, indexPath);
     console.log(`Updated ${indexPath}`);
   } else {
     console.log(`Would update ${indexPath} (dry run)`);
