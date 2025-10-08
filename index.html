@@ -1,149 +1,59 @@
-<!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sin Wave</title>
+<!DOCTYPE html>
+<html lang="es">
     
-    <link rel="stylesheet" href="css/main-unified.css">
-    <link rel="stylesheet" href="css/fonts.css">
-</head>
-<body>
-    <!-- Components will be automatically loaded here -->
-    <div id="site-header"></div>
-    <div id="site-navigation"></div>
-    
-    <main>
-        <section id="about">
-            <div class="container">
-                <div class="home-panel-full">
-                    <h2>About Me</h2>
-                    <div class="about-content">
-                        <div class="about-image">
-                            <img src="images/profile.jpg" alt="David Obando">
-                        </div>
-                        <div class="about-text">
-                            <p>Hi, I'm David Obando, a Computer Engineering student at ITCR specializing in cybersecurity, coding, and FOSS technologies. I'm pursuing CE with plans to become a cybersecurity analyst, currently studying information security independently alongside my formal education.</p>
-                            <p>This site serves as my digital workshop for sharing technical projects, documenting my learning journey in CS and cybersecurity, and contributing to the open-source community. You'll find my work on security analysis, programming projects, and technical experiments here.</p>
-                            <p>Beyond tech, I'm passionate about music production and composition, language learning, and exploring how technology intersects with creative expression. I believe in continuous learning and knowledge sharing within the tech community.</p>
-                            <p>Feel free to explore my projects and reach out if you'd like to collaborate!</p>
-                           <div class="about-contact">
-                                Contact me via email: <a href="mailto:davidobando@protonmail.com">davidobando@protonmail.com</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="blog">
-            <div class="container">
-                <div class="home-panel-full">
-                    <h2>Latest Articles</h2>
-                    <div class="home-featured-content">
-                        <div class="content-card">
-                            <div class="card-content">
-                                <h3><i class="fa-solid fa-shield-halved"></i> Protecting Accounts</h3>
-                                <p>Learn how to protect your accounts from common threats.</p>
-                                <p><a href="catalog/cybersecurity/securing-accounts.html">Read more →</a></p>
-                            </div>
-                        </div>
-                        
-                        <div class="content-card">
-                            <div class="card-content">
-                                <h3><i class="fa-solid fa-music"></i> Chord Naming</h3>
-                                <p>Learn how to read and understand chord symbols from basic triads to complex jazz chords.</p>
-                                <p><a href="catalog/music-theory/chord-naming.html">Read more →</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="catalog">
-            <div class="container">
-                <div class="home-panel-full">
-                    <h2>Content Catalog</h2>
-                    <p class="catalog-intro">Browse my articles and resources by category.</p>
-                    
-                    <div class="home-featured-content">
-                        <div class="content-card">
-                            <div class="card-content">
-                                <h3><i class="fa-solid fa-shield-halved"></i> All Cybersecurity Articles</h3>
-                                <p>Browse the complete collection of cybersecurity resources.</p>
-                                <p><a href="catalog/cybersecurity/index.html">Browse Library →</a></p>
-                            </div>
-                        </div>
 
-                        <div class="content-card">
-                            <div class="card-content">
-                                <h3><i class="fa-solid fa-music"></i> All Music Theory Articles</h3>
-                                <p>Browse the complete collection of music theory resources.</p>
-                                <p><a href="catalog/music-theory/index.html">Browse Library →</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="catalog-view-all">
-                        <a href="catalog/index.html">
-                            View All Categories <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="contact">
-            <div class="container">
-                <div class="home-panel-full">
-                    <h2>Get In Touch</h2>
-                    <p>Feel free to reach out if you have questions, want to collaborate, or just want to connect!</p>
-                    
-                    <div class="home-featured-content">
-                        <div class="content-card">
-                            <div class="card-content">
-                                <h3>Connect With Me</h3>
-                                <p>Find me on various platforms:</p>
-                                <div class="social-links">
-                                    <a href="https://github.com/TheDeGeO" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                                    <a href="https://www.linkedin.com/in/david-obando-blanco-566854221" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                                    <a href="https://rateyourmusic.com/~TheDeGeO" aria-label="Rate Your Music"><i class="fa-solid fa-headphones"></i></a>
-                                    <a href="https://t.me/ptsdkei" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="content-card">
-                            <div class="card-content">
-                                <h3>Send a Message</h3>
-                                <form class="form" id="contact-form">
-                                    <div class="form-group">
-                                        <label for="name">Name</label>
-                                        <input type="text" id="name" name="name" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email">Email</label>
-                                        <input type="email" id="email" name="email" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="message">Message</label>
-                                        <textarea id="message" name="message" required=""></textarea>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Send Message</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <!-- Footer will be automatically loaded here -->
-    <div id="site-footer"></div>
-    
-    <!-- Load component system first -->
-    <script src="js/modules/components.js"></script>
-    <!-- Load main functionality -->
-    <script src="js/main.js"></script>
+    <head>
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cosenoidal</title>
+        <link rel="stylesheet" href="estilos/main.css">
+    </head>
 
-</body></html>
+    <body>
+            <header class="main-header">
+                <nav class="main-nav">
+                    <ul class="nav-left">
+                        <li><a href="index.html">Cosenoidal</a></li>
+                    </ul>
+                    
+                    <ul class="nav-right">
+                        <li><a href="musica.html">Teoria Musical</a></li>
+                        <li><a href="#idiomas">Idiomas</a></li>
+                        <li><a href="#computacion">Computacion</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <section id="inicio" class="profile-section">
+                    <img src="media/miku.jpg" alt="Imagen de Hatsune Miku" class="profile-image">
+                    <div class="profile-text">
+                    <h2>Bienvenidos a mi página personal</h2>
+                    <p>Cosenoidal es una página de carácter personal, artístico y divulgativo. El propósito de esta página es compartir conocimiento en las áreas de la computación, cultura, teoría musical y adquisición de idiomas, entre otros. La información se presentará por medio de artículos o páginas interactivas, con un enfoque en presentar la información de manera accesible y mantener una estética definida.</p>
+                    </div>  
+                </section>
+
+                <section id="sobre mi" class="about-section">
+                    <div class="profile-text">
+                    <h2>Sobre mí</h2>
+                    <p>Mi nombre es David, estudio Ingeniería en Computadores en el Instituto Tecnológico de Costa Rica. Me dedico principalmente a mi carrera y me gusta dedicar mi tiempo libre a escuchar música, tocar guitarra, estudiar algún idioma o hacer cosas como esta. No hace falta aclarar que mis principales intereses son la música, los idiomas y las computadoras.</p>
+                    <p>Me fascinan las computadoras y lo que somos capaces de hacer con ellas. Poder comprender su funcionamiento, entenderlas y desarrollar su tecnología es mi motivación para estudiar mi carrera.</p>
+                    <p>La música es mi pasión, supongo que es mi cosa favorita, es mi arte, es mi inspiración... Me gusta escuchar todo tipo de música; entre mis géneros favoritos se encuentran J-Rock, Salsa, Metalcore melódico, Shoegaze, Jazz Fusion, Art Pop y demás. Me gusta sentarme a escuchar atentamente todo tipo de música, conectar emocionalmente con su mensaje y su belleza, me gusta exponerme a géneros nuevos, sonidos diferentes y culturas desconocidas. Espero poder llegar a ser un buen músico, quiero hacer arte, quiero poder expresarme en la música, hacer obras hermosas, quiero ser capaz de crear belleza; entonces podrán llamarme artista.</p>
+                    <p>Mi otro pasatiempo son los idiomas, o más bien, aprender idiomas. Decir esto da la impresión de que soy políglota, lamentablemente no es el caso. Los idiomas no me apasionan tanto como la música. A lo que más he dedicado tiempo es a estudiar la teoría de la adquisición de idiomas a través del input comprensible y a aprender las bases de múltiples idiomas en los cuales nunca llegué ni siquiera a un nivel elemental. Mi idioma nativo es el español, soy proficiente en inglés y sigo estudiando japonés, en el cual tengo un nivel básico.</p>
+                    </div>
+                </section>
+
+                <section id="contacto" class="contact-section">
+                    <div class="profile-text">
+                    <h2>Contacto</h2>
+                    <p>Pueden escribirme a mi correo electrónico: <a href="mailto:davidobando@protonmail.com">davidobando@protonmail.com</a>.</p>
+                    <p>Recomienden álbumes en RYM: <a href="https://rateyourmusic.com/~TheDeGeO">TheDeGeO</a>.</p>
+                    <p>Vean mis proyectos en GitHub: <a href="https://github.com/TheDeGeO">TheDeGeO</a>.</p>
+                    <p>O vean mis publicaciones en Telegram: <a href="https://t.me/ptsdkei">PTSD</a>.</p>
+                    </div>
+                </section>
+
+            </main>
+
+        </body>
+</html>

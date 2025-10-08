@@ -1,0 +1,99 @@
+@import url('variables.css');
+@import url('mobile.css');
+
+@font-face {
+    font-family: 'Fantasque Sans Mono';
+    src: url(/media/FantasqueSansMNerdFont-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: 'Fantasque Sans Mono', monospace;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.main-nav a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 14px 16px;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    background-color: var(--background2);
+    align-items: center;
+}
+
+.nav-left {
+    text-align: left;
+    font-size: 24px;
+    padding-left: var(--padding-base);
+}
+.nav-right {
+    text-align: right;
+    padding-right: var(--padding-base);
+    text-align: right;
+}
+
+.profile-text {
+    text-align: justify;
+}
+
+.profile-section {
+    padding: var(--padding-xl);
+    max-width: var(--ancho-maximo);
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+.profile-image {
+    max-width: 200px;
+    border-radius: var(--border-radius);
+    margin-right: var(--padding-medio);
+}
+
+.about-section {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    max-width: var(--ancho-maximo);
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+.contact-section {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    max-width: var(--ancho-maximo);
+    margin: auto;
+    text-align: center;
+    display: flex;
+}
+
+a {
+    color: var(--aqua);
+}

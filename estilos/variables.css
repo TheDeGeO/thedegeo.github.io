@@ -1,0 +1,24 @@
+:root{
+    /* Fondos */
+    --background: #1d2021;
+    --background2: #282828;
+
+    /* Textos */
+    --foreground: #d4b398;
+
+    /* Colores adicionales */
+    --aqua: #89b482;
+
+    /* Tamaños */
+    --ancho-maximo: 800px;
+
+    /* Espaciados */
+    --padding-base: 10px;
+    --padding-medio: 20px;
+    --padding-grande: 35px;
+    --padding-xl: 70px;
+
+    /* Esquinas */
+    --border-radius: 10px;
+    
+}
