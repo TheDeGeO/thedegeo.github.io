@@ -8,6 +8,10 @@
 
     /* Colores adicionales */
     --aqua: #89b482;
+    --green: #a9b665;
+    --blue: #7daea3;
+    --purple: #d3869b;
+    --visual-purple: #3c333b;
 
     /* Tamaños */
     --ancho-maximo: 800px;
@@ -21,4 +25,9 @@
     /* Esquinas */
     --border-radius: 10px;
     
+    /* Tamano de Fuentes */
+    --font-size-base: 18px;
+    --font-size-medio: 24px;
+    --font-size-grande: 30px;
+
 }
