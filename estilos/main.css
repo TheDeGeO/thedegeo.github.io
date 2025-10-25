@@ -30,7 +30,17 @@ body.theme-purple {
     --sec-accent: var(--blue);
 }
 
-.main-header {
+body.theme-blue {
+    --main-accent: var(--blue);
+    --sec-accent: var(--aqua);
+}
+
+body.theme-green {
+    --main-accent: var(--green);
+    --sec-accent: var(--aqua);
+}
+
+#navbar-container {
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -84,12 +94,12 @@ body.theme-purple {
 }
 
 .profile-image {
-    max-width: 200px;
+    max-height: 200px;
     border-radius: var(--border-radius);
     margin-right: var(--padding-medio);
 }
 .profile-image-small {
-    max-width: 125px;
+    max-height: 150px;
     border-radius: var(--border-radius);
     margin-right: var(--padding-medio);
 }
