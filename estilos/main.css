@@ -40,6 +40,11 @@ body.theme-green {
     --sec-accent: var(--aqua);
 }
 
+body.theme-red {
+    --main-accent: var(--red);
+    --sec-accent: var(--purple);
+}
+
 #navbar-container {
     position: sticky;
     top: 0;
