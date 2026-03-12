@@ -16,6 +16,7 @@
 
     /* Tamaños */
     --ancho-maximo: 800px;
+    --ancho-maximo-ar: 1000px;
 
     /* Espaciados */
     --padding-base: 10px;
@@ -25,10 +26,14 @@
 
     /* Esquinas */
     --border-radius: 10px;
+    --mid-border-radius: 15px;
     
     /* Tamano de Fuentes */
     --font-size-base: 18px;
     --font-size-medio: 24px;
     --font-size-grande: 30px;
+
+    /*Sombras*/
+    --sombra-ligera: 0 2px 8px rgba(0, 0, 0, 0.1);
 
 }

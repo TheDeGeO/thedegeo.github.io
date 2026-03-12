@@ -109,6 +109,11 @@ body.theme-red {
     margin-right: var(--padding-medio);
 }
 
+.small-image {
+    max-height: 100px;
+    border-radius: var(--border-radius);
+}
+
 .about-section {
     padding-left: var(--padding-xl);
     padding-right: var(--padding-xl);
@@ -136,6 +141,23 @@ body.theme-red {
     display: flex;
     align-items: center;
     font-size: var(--font-size-base);
+}
+
+.article-display {
+    padding: var(--padding-medio);
+    max-width: var(--ancho-maximo-ar);
+    margin: auto;
+    margin-top: var(--padding-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    font-size: var(--font-size-base);
+    background: var(--background2);
+    border-radius: var(--mid-border-radius);
+    box-shadow: var(--sombra-ligera);
+
 }
 
 a {
