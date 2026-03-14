@@ -148,6 +148,7 @@ body.theme-red {
     max-width: var(--ancho-maximo-ar);
     margin: auto;
     margin-top: var(--padding-xl);
+    margin-bottom: var(--padding-xl);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -158,6 +159,10 @@ body.theme-red {
     border-radius: var(--mid-border-radius);
     box-shadow: var(--sombra-ligera);
 
+}
+
+.centered-text {
+  text-align: center;
 }
 
 a {
